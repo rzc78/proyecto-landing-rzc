@@ -1,0 +1,884 @@
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*fuente h1: Fira Sans sans-serif
+Cuerpo y otros elementos de texto: Sarabun, sans-serif*/
+
+body{
+    background-color: rgb(31, 31, 31);
+    background-image:url("../assets/images/backgroundneon.png");
+}
+
+/* Estilons de botones */
+.button{
+    background-color: #bc239d;
+    font-family: sarabun;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.buttonMainContainer{
+    margin-top: 10%;
+}
+/* Menú y elementos del header */
+
+header{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: black;
+
+}
+.menu ul{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    
+}
+nav ul li{
+    padding-left: 15px;
+    align-items: center;
+    justify-content: start;
+    margin-top: 4%;
+    margin-left: 2%;
+}
+nav ul li a{
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 800;
+    border: 2px;
+    font-family: fira sans ;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+
+    }
+.activo{
+    text-decoration: underline;
+}
+.piezasHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.iconosRedes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    margin-right: 5%;
+}
+.iconosRedes img{
+    padding: 10px;
+
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+/* Estilos de textos */
+
+.titleH1{
+    font-family: Fira Sans, sans-serif;
+    font-size: 60px;
+    color: rgb(209, 209, 217);
+    animate__slideInLeft
+    
+}
+
+.ordenMain{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin: 15% 8%;
+}
+.subtituloMain{
+    font-family: Fira Sans, sans-serif;
+    font-size: 23px;
+    color: rgb(209, 209, 217);
+    text-align: left;
+    padding: 20px;
+    animate__pulse
+}
+.tituloGrande{
+    font-family: Fira Sans, sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: rgb(209, 209, 217);
+    padding: 5%;
+
+}
+.subtitulo{
+    font-family: Fira Sans, sans-serif;
+    font-size: 23px;
+    color: rgb(209, 209, 217);
+    text-align: center;
+    margin: 25px 25px 0 25px;
+}
+.cuerpo{
+    text-align: center;
+    color: rgb(209, 209, 217);
+    font-family: sarabun, sans-serif;
+    font-size: 18px;
+    margin: 100px 80px;
+}
+.cuerpoJustificado {
+    text-align: left;
+    color: rgb(193, 188, 188);
+    font-family: sarabun, sans-serif;
+    font-size: 18px;
+    margin: 100px;
+}
+
+/* Textos sin formato de espaciados*/
+
+.subtituloLimpio{
+    font-family: Fira Sans, sans-serif;
+    font-size: 23px;
+    color: rgb(209, 209, 217);
+    padding-bottom: 20px;
+    margin-left: 20px;
+}
+/* Posicionamiento de imágenes y video */
+
+.flexMainDescripcion{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    justify-content: space-between;
+}
+
+.centrado{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.mosaicoPortfolio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+
+}
+.mosaicoPortfolio img{
+    max-width: 500px;
+    min-height: 100px;
+    margin: 30px;
+    padding: 0 auto;
+    border-radius: 7px;
+}
+
+.mosaicoAudiovisual{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
+    
+}
+.mosaicoAudiovisualIframe{
+    width: 600px;
+    height: 300px;
+    padding: 15px;
+    max-width: 90%;
+}
+
+.mosaicoClientes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    text-align: center;
+    color: aliceblue;
+}
+.mosaicoClientes img{
+    min-width: 90px;
+    max-height: 300px;
+    margin: 35px;
+    padding: 0 auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+
+}
+.perfil img{
+    min-width: none;
+    max-height: 200px;
+    border-radius: 500px;
+    padding: 40px;
+}
+.perfil{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+footer{
+    font-family: sarabun, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin: 20px;
+    color: rgb(130, 130, 131);
+    text-align: center;
+
+}
+
+/* Sección Contacto y ordenamiento forms - mapa - textos */
+
+.centrado{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.mainContacto{
+    display: grid ;
+    grid-template-areas:
+    "formulario contactoMapa"
+    "formulario contactoMapa";
+    grid-column-gap: 40px;
+    justify-items: center;
+    margin-top: 5%;
+    align-items: center;
+}
+input{
+    display: inline-block;
+    font-family: sarabun, sans-serif;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    align-items: flex-start;
+    margin: 3%;
+    padding: 3%;
+    min-width: none;
+    max-width: 0 auto;
+    border-radius: 7px;
+}
+textarea{
+    display: inline-block;
+    font-family: sarabun, sans-serif;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    align-items: flex-start;
+    margin: 3%;
+    padding: 3%;
+    min-width: 0 auto;
+    max-width: 0 auto;
+    min-height: 300px;
+    max-height: 600px;
+    border-radius: 7px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: left;
+    align-items: stretch;
+    padding: 30px;
+    margin-left: 20px;
+}
+
+.ubicacion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.mapa{
+    display: inline-block;
+    width: 800px;
+    height: 600px;
+    max-width: 90%px;
+}
+.datosUbicacion{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+
+}
+
+/* Formato de Tabla */
+
+table {
+    display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5%;
+    text-align: left;
+}
+
+th, td {
+    font-size: 19px;
+    font-family: sarabun, sans-serif;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    width: 25%;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid rgb(187, 184, 184);
+    border-collapse: collapse;
+    padding: 15px;
+    caption-side: bottom;
+}
+
+/* Visibles fuera de body */
+
+.whatsappFlotante img {
+    padding: 18px 30px;
+    max-width: 60px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99;
+}
+
+/* Grids contacto */
+
+/* MEEDIA QUERIES TABLET */
+
+@media screen and (max-width: 1054px){
+    /* Header */
+    header{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+        background-color: black;
+        align-items: center;
+    
+    }
+    .menu ul{
+        text-decoration: none;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+    }
+    nav ul li{
+        padding-left: 0px;
+        align-items: center;
+        justify-content: center;
+        margin: 15px;
+    }
+    nav ul li a{
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 800;
+        border: 2px;
+        font-family: fira sans ;
+        font-size: 18px;
+        color: rgb(255, 255, 255);
+    
+    }
+    .piezasHeader{
+        display: flex;
+        flex-direction: column;
+    }
+    .iconosRedes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin: 0 auto;
+        justify-content:flex-start;
+        max-width: 900px;
+    }
+    .iconosRedes a{
+        margin: 0 auto;
+    }
+    .logo{
+        display: flex;
+        flex-direction: column  ;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin:0 auto;
+    }
+
+    /* BODY INDEX  */
+
+    .ordenMain{
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        margin: 30% 8%;
+        text-align: center;
+    }
+    .subtituloMain{
+        text-align: center;
+    }
+    .flexMainDescripcion{
+        align-items: center;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    
+    .perfil img{
+        min-width: none;
+        max-height: 300px;
+        border-radius: 500px;
+        padding: 40px;
+    }
+    .perfil{
+        display: flex;
+        flex-direction: column;
+    }
+    footer{
+        font-family: sarabun, sans-serif;
+        font-size: 16px;
+        padding: 10px;
+        margin: 20px;
+        color: rgb(130, 130, 131);
+        text-align: center;
+    
+    }
+    /* PÁGINA CLIENTES TABLET */
+    .mosaicoClientes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: center;
+        text-align: center;
+        color: aliceblue;
+    }
+    .mosaicoClientes img{
+        max-height: 300px;
+        margin: 30px 20px;
+        padding: 0 auto;
+        background-color: rgb(255, 255, 255);
+        border-radius: 7px;
+    
+    }
+    .cuerpo{
+        text-align: center;
+        color: rgb(209, 209, 217);
+        font-family: sarabun, sans-serif;
+        font-size: 15px;
+        margin: 100px 80px;
+    }
+
+    /* PORTFOLIO */
+    .mosaicoAudiovisual{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+        align-items: center;
+        
+    }
+    .mosaicoAudiovisualIframe{
+        width: 500px;
+        height: 350px;
+        max-width: 500%;
+        padding: 15px;
+    }
+
+    /* MAPA y CONTACTO */
+
+    .centrado{
+        display: flex;
+        align-items: center;
+        margin-bottom: 5%;
+    }
+
+    .mainContacto{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        margin-top: 15%;
+    }
+    input{
+        display: inline-block;
+        font-family: sarabun, sans-serif;
+        font-size: 17px;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        align-items: flex-start;
+        margin: 3%;
+        padding: 3%;
+        min-width: none;
+        max-width: 0 auto;
+        border-radius: 7px;
+    }
+    textarea{
+        display: inline-block;
+        font-family: sarabun, sans-serif;
+        font-size: 17px;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        align-items: flex-start;
+        margin: 3%;
+        padding: 3%;
+        min-width: 0 auto;
+        max-width: 0 auto;
+        min-height: 300px;
+        max-height: 600px;
+        border-radius: 7px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+        justify-content: left;
+        align-items: stretch;
+        padding: 30px;
+        margin-left: 20px;
+    }
+
+    .ubicacion{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .mapa{
+        display: inline-block;
+        width: 700px;
+        height: 700px;
+        max-width: 90%
+    }
+    .datosUbicacion{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:center;
+        align-items: center;
+    
+    }
+}
+
+@media screen and (max-width: 360px){
+      /* Header */
+    header{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr;
+        background-color: black;
+        align-items: flex-start;
+    
+    }
+    .menu ul{
+        text-decoration: none;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        align-items: flex-start;
+        justify-content: center;
+        text-align:left; 
+    }
+    nav ul li{
+        padding-left: 0px;
+        align-items:flex-start;
+        justify-content: start;
+    }
+    nav ul li a{
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 600;
+        border: 2px;
+        font-family: fira sans ;
+        font-size: 16px;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        }
+    .piezasHeader{
+        display: flex;
+        flex-direction: column;
+    }
+    .iconosRedes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin: 0 auto;
+        justify-content:flex-start;
+        max-width: 300px;
+    }
+    .iconosRedes a{
+        margin: 0 auto;
+    }
+    .iconosRedes img{
+    
+    }
+    .logo{
+        display: flex;
+        flex-direction: column  ;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    /* BODY INDEX */
+
+    /* Estilos de textos */
+
+    .titleH1{
+        font-family: Fira Sans, sans-serif;
+        font-size: 30px;
+        color: rgb(209, 209, 217);
+        animate__slideInLeft
+        
+    }
+
+    .subtituloMain{
+        font-family: Fira Sans, sans-serif;
+        font-size: 18px;
+        color: rgb(209, 209, 217);
+        text-align: left;
+        padding: 20px;
+        animate__pulse
+    }
+    .tituloGrande{
+        font-family: Fira Sans, sans-serif;
+        font-size: 35px;
+        text-align: center;
+        color: rgb(209, 209, 217);
+        padding: 5%;
+
+    }
+    .subtituloLimpio{
+        font-family: Fira Sans, sans-serif;
+        font-size: 18px;
+        color: rgb(209, 209, 217);
+        padding-bottom: 15px;
+        margin-left: 20px;
+    }
+    .centrado{
+        display: flex;
+        align-items: center;
+        margin-bottom: 5%;
+    }
+    .subtitulo{
+        font-family: Fira Sans, sans-serif;
+        font-size: 20px;
+        color: rgb(209, 209, 217);
+        text-align: center;
+        margin: 25px 25px 0 25px;
+    }
+    .cuerpo{
+        text-align: center;
+        color: rgb(209, 209, 217);
+        font-family: sarabun, sans-serif;
+        font-size: 14px;
+        margin: 50px 20px;
+    }
+    .cuerpoJustificado {
+        text-align:left;
+        color: rgb(193, 188, 188);
+        font-family: sarabun, sans-serif;
+        font-size: 14px;
+        margin: 50px;
+    }
+    .ordenMain{
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        margin: 30% 8%;
+        text-align: center;
+    }
+    .subtituloMain{
+        text-align: center;
+    }
+    .flexMainDescripcion{
+        align-items: center;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    /* index portfolio */
+
+    .mosaicoPortfolio{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-content: center;
+
+    }
+    .mosaicoPortfolio img{
+        max-width: 250px;
+        min-height: 60px;
+        margin: 30px;
+        padding: 0 auto;
+        border-radius: 7px;
+    }
+    .mosaicoAudiovisual{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+        align-items: center;
+        
+    }
+    .mosaicoAudiovisualIframe{
+        width: 280px;
+        height: 200px;
+        max-width: 280%;
+        padding: 10px;
+    }
+        
+    .perfil img{
+        min-width: none;
+        max-height: 180px;
+        border-radius: 500px;
+        padding: 20px;
+    }
+
+    /* CLIENTES */
+    .mosaicoClientes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-content: center;
+        text-align: center;
+        color: aliceblue;
+    }
+    .mosaicoClientes img{
+        max-width: 280px;
+        margin: 35px 0;
+        padding: 2px
+        background-color: rgb(255, 255, 255);
+        border-radius: 7px;
+    
+    }
+    /* FORMATOS DE TABLA */
+    table {
+        display: flex;
+        width: 80%;
+        margin-left: 0 auto;
+        margin-right: 0 auto;
+        margin-top: 20px;
+        padding-bottom: 5%;
+        text-align: left;
+    }
+
+    th, td {
+        font-size: 16px;
+        font-family: sarabun, sans-serif;
+        font-size: 12px;
+        color: rgb(255, 255, 255);
+        width: 25%;
+        text-align: left;
+        vertical-align: middle;
+        border: 1px solid rgb(187, 184, 184);
+        border-collapse: collapse;
+        padding: 10px;
+        caption-side: bottom;
+    }
+
+    /* CONTACTO Y MAPA */
+    
+    input{
+        display: inline-block;
+        font-family: sarabun, sans-serif;
+        font-size: 17px;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        align-items: flex-start;
+        margin: 3%;
+        padding: 3%;
+        min-width: none;
+        max-width: 0 auto;
+        border-radius: 7px;
+    }
+    textarea{
+        display: inline-block;
+        font-family: sarabun, sans-serif;
+        font-size: 17px;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        align-items: flex-start;
+        margin: 3%;
+        padding: 3%;
+        min-width: 0 auto;
+        max-width: 0 auto;
+        min-height: 300px;
+        max-height: 600px;
+        border-radius: 7px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+        justify-content: left;
+        align-items: stretch;
+        padding: 30px;
+        margin-left: 20px;
+    }
+
+    .ubicacion{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .mapa{
+        display: inline-block;
+        width: 280px;
+        height: 270px;
+        max-width: 300px;
+    }
+    .datosUbicacion{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:center;
+        align-items: center;
+    
+    }
+    footer{
+        font-family: sarabun, sans-serif;
+        font-size: 11px;
+        padding: 10px;
+        margin: 20px;
+        color: rgb(130, 130, 131);
+        text-align: center;
+        
+    }
+    .whatsappFlotante img {
+        padding: 10px 10px;
+        max-width: 30px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 99;
+    }
+}
