@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,800;1,200&family=Sarabun:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <title>Rodrigo Zalazar Cavalleris</title>
@@ -50,13 +51,12 @@
             <div class="buttonMainContainer">
                 <a class=button target="_blank" href="./contacto.html" class="boton">CONTACTAME</a>
             </div>
-            
         </div>
     <!--section de portfolio-->
-        <section>
+        <section data-aos="fade-up">
             <h2 class="subtitulo">Mi portfolio</h2>
             <p class="cuerpo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit hic, explicabo expedita neque velit reiciendis exercitationem non nesciunt quo iusto cum accusamus ullam dolore ipsum similique vero deserunt odio enim.</p>
-            <div class="mosaicoPortfolio">
+            <div class="mosaicoPortfolio" data-aos="fade-up">
                 <img src="./assets/images/rzc-muestra-18.jpg" alt="">
                 <img src="./assets/images/rzc-muestra-9.jpg" alt="">
                 <img src="./assets/images/rzc-muestra-21.jpg" alt="">
@@ -67,10 +67,10 @@
             </div>
         </section>
     <!--section clientes-->
-        <section>
+        <section data-aos="fade-up">
             <h2 class="subtitulo">Algunos clientes</h2>
             <p class="cuerpo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ex? Consequatur, beatae eveniet cumque nisi voluptatum et officia eaque quod animi in tempora quam nemo corporis. Impedit ducimus vitae facere!</p>
-            <div class="mosaicoClientes">
+            <div data-aos="fade-up" class="mosaicoClientes">
                 <img src="./assets/images/torneos.png" alt="logo torneos">
                 <img src="./assets/images/gobierno-de-cordoba.png" alt="logo gobierno de córdoba">
                 <img src="./assets/images/lavoris.png" alt="logo lavoris">
@@ -82,19 +82,19 @@
         </section>
     <!-- section about me (experiencia laboral) -->
         <section id="about">
-            <h2 class="tituloGrande">Sobre mi</h2>
-            <article>
+            <h2 data-aos="fade-down" class="tituloGrande">Sobre mi</h2>
+            <article data-aos="fade-down">
                 <h3 class="subtitulo">Experiencia Profesional</h3> 
                 <div class="perfil">
-                    <div class="fotoPerfil">
+                    <div data-aos="fade-right" class="fotoPerfil">
                         <img src="./assets/images/rodrigo.jpeg" alt="Retrato Rodrigo Zalazar Cavalleris">
                     </div>
-                    <div class="perfil">
+                    <div data-aos="fade-left" class="perfil">
                         <p class="cuerpo">Mi nombre es Rodrigo. Soy Comunicador social y vivo en Córdoba, Respública Argentina. A lo largo de mi carrera he adquirido conocomiento sobre varios de los procesos que se relacionan a la comunicación, especialmente en las ramas de imagen, gráfica y audiovisual. Esto me ha proporcionado una gran experiencia que he podido plasmar en varios proyectos en los que he participado. Además, he sumado a mi profesión la formación en programación Full Stack, para conectarme mucho más profundamente con las actuales tendencias y seguir expandiendo mis conocimientos.</p>
-                    </div>          
+                    </div>
                 </div>
             </article>
-            <article>
+            <article data-aos="fade-down">
                 <h3 class="subtitulo">Educación</h3>
                 <div class="centrado">
                     <ul class="cuerpoJustificado">
@@ -142,5 +142,9 @@
 <footer>
     <p>© Rodrigo Zalazar Cavalleris - Desarrollo: Rodrigo Zalazar Cavalleris Reservados todos los derechos</p>
 </footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>

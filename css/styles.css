@@ -4,13 +4,33 @@
     margin: 0;
     padding: 0;
 }
-
+/* FAMILIA DE FUENTES Y PPTS */
 /*fuente h1: Fira Sans sans-serif
 Cuerpo y otros elementos de texto: Sarabun, sans-serif*/
 
-body{
+
+/* BAKCGROUND PAGE */
+/* body{
     background-color: rgb(31, 31, 31);
     background-image:url("../assets/images/backgroundneon.png");
+} */
+body {
+	background: linear-gradient(-45deg, #d24c24, #b6255d, #1398c8, #021914);
+	background-size: 800% 200%;
+	animation: gradient 13s ease infinite;
+	height: 100%;  
+
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 /* Estilons de botones */
@@ -124,7 +144,8 @@ nav ul li a{
     font-size: 35px;
     text-align: center;
     color: rgb(209, 209, 217);
-    padding: 5%;
+    padding: 3.5%;
+    margin: 0 auto;
 
 }
 .subtitulo{
@@ -132,14 +153,14 @@ nav ul li a{
     font-size: 23px;
     color: rgb(209, 209, 217);
     text-align: center;
-    margin: 25px 25px 0 25px;
+    margin: 35px 25px 0 25px;
 }
 .cuerpo{
     text-align: center;
     color: rgb(209, 209, 217);
     font-family: sarabun, sans-serif;
     font-size: 18px;
-    margin: 100px 80px;
+    margin: 50px 80px;
 }
 .cuerpoJustificado {
     text-align: left;
