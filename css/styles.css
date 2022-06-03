@@ -10,16 +10,12 @@ Cuerpo y otros elementos de texto: Sarabun, sans-serif*/
 
 
 /* BAKCGROUND PAGE */
-/* body{
-    background-color: rgb(31, 31, 31);
-    background-image:url("../assets/images/backgroundneon.png");
-} */
 body {
 	background: linear-gradient(-45deg, #d24c24, #b6255d, #1398c8, #021914);
-	background-size: 800% 200%;
+	background-size: 100%;
 	animation: gradient 13s ease infinite;
-	height: 100%;  
-
+	height: 100%;
+    overflow-x: hidden;
 }
 @keyframes gradient {
 	0% {
@@ -34,23 +30,22 @@ body {
 }
 
 /* Estilons de botones */
-.button{
-    background-color: #bc239d;
-    font-family: sarabun;
-    border: none;
-    border-radius: 7px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+
+.btnModificado{
+    color: whitesmoke;
+    background-color:#b6255d;
+    border-color: #b6255d;
+}
+.btnHover:hover{
+    color: rgb(0, 0, 0);
+    background-color:#de749d;
+    border-color: #de749d;
+    box-shadow: 0 0 20px rgb(255, 255, 255)
 }
 .buttonMainContainer{
     margin-top: 10%;
 }
+
 /* Menú y elementos del header */
 
 header{
@@ -120,17 +115,16 @@ nav ul li a{
 .titleH1{
     font-family: Fira Sans, sans-serif;
     font-weight: 800;
-    font-size: 60px;
+    font-size: 40px;
     color: rgb(209, 209, 217);
     animate__slideInLeft
-    
 }
 
 .ordenMain{
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    margin: 15% 8%;
+    margin: 10% 8%;
 }
 .subtituloMain{
     font-family: Fira Sans, sans-serif;
@@ -143,7 +137,7 @@ nav ul li a{
 .tituloGrande{
     font-family: Fira Sans, sans-serif;
     font-size: 35px;
-    font-weight:
+    font-weight: 800;
     text-align: center;
     color: rgb(209, 209, 217);
     padding: 3.5%;
@@ -171,13 +165,23 @@ nav ul li a{
     color: rgb(193, 188, 188);
     font-family: sarabun, sans-serif;
     font-size: 18px;
+    font-weight: 100;
     margin: 100px;
+}
+.tituloContacto{
+    font-family: Fira Sans, sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    color: rgb(209, 209, 217);
+    text-align: left;
+    margin: 5% 7%;
 }
 
 /* Textos sin formato de espaciados*/
 
 .subtituloLimpio{
     font-family: Fira Sans, sans-serif;
+    font-weight: 100;
     font-size: 23px;
     color: rgb(209, 209, 217);
     padding-bottom: 20px;
@@ -191,11 +195,10 @@ nav ul li a{
     align-items:flex-end;
     justify-content: space-between;
 }
-
 .centrado{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 }
@@ -208,13 +211,12 @@ nav ul li a{
 
 }
 .mosaicoPortfolio img{
-    max-width: 500px;
-    min-height: 100px;
-    margin: 30px;
+    max-width: 80%;
+    height: auto;
+    margin: 2%;
     padding: 0 auto;
     border-radius: 7px;
 }
-
 .mosaicoAudiovisual{
     display: flex;
     flex-direction: row;
@@ -229,6 +231,9 @@ nav ul li a{
     padding: 15px;
     max-width: 90%;
 }
+.elementoVideo{
+    margin-bottom: 5%;
+}
 
 .mosaicoClientes{
     display: flex;
@@ -240,17 +245,17 @@ nav ul li a{
     color: aliceblue;
 }
 .mosaicoClientes img{
-    min-width: 90px;
-    max-height: 300px;
-    margin: 35px;
+    width: 60%;
+    height: auto;
+    margin: 20px;
     padding: 0 auto;
     background-color: rgb(255, 255, 255);
     border-radius: 7px;
 
 }
 .perfil img{
-    min-width: none;
-    max-height: 200px;
+    width: none;
+    max-height: 300px;
     border-radius: 500px;
     padding: 40px;
 }
@@ -274,23 +279,12 @@ footer{
 }
 
 /* Sección Contacto y ordenamiento forms - mapa - textos */
-
 .centrado{
     display: flex;
     align-items: center;
     margin-bottom: 5%;
 }
 
-.mainContacto{
-    display: grid ;
-    grid-template-areas:
-    "formulario contactoMapa"
-    "formulario contactoMapa";
-    grid-column-gap: 40px;
-    justify-items: center;
-    margin-top: 5%;
-    align-items: center;
-}
 input{
     display: inline-block;
     font-family: sarabun, sans-serif;
@@ -298,8 +292,8 @@ input{
     color: rgb(0, 0, 0);
     text-align: left;
     align-items: flex-start;
-    margin: 3%;
-    padding: 3%;
+    margin: 2% 7%;
+    padding: 2%;
     min-width: none;
     max-width: 0 auto;
     border-radius: 7px;
@@ -311,7 +305,7 @@ textarea{
     color: rgb(0, 0, 0);
     text-align: left;
     align-items: flex-start;
-    margin: 3%;
+    margin: 5% 7%;
     padding: 3%;
     min-width: 0 auto;
     max-width: 0 auto;
@@ -327,22 +321,33 @@ form{
     justify-content: left;
     align-items: stretch;
     padding: 30px;
-    margin-left: 20px;
-}
 
-.ubicacion{
+}
+/* .ubicacion{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     align-items: center;
-}
+} */
 .mapa{
-    display: inline-block;
-    width: 800px;
-    height: 600px;
-    max-width: 90%px;
+    width: 100%;
+    height: 700px;
+    margin: 0 auto;
+}
+.boxMain{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cardModificada{
+    height: 750px;
+}
+.rowCenter{
+    display: flex;
+    align-items:stretch;
+    margin: 0 auto;
 }
 .datosUbicacion{
     display: flex;
@@ -350,7 +355,6 @@ form{
     flex-wrap: wrap;
     justify-content:center;
     align-items: center;
-
 }
 
 /* Formato de Tabla */
@@ -515,24 +519,9 @@ th, td {
         margin: 100px 80px;
     }
 
-    /* PORTFOLIO */
-    .mosaicoAudiovisual{
-        display: flex;
-        flex-direction: column;
-        justify-content:space-around;
-        align-items: center;
-        
-    }
-    .mosaicoAudiovisualIframe{
-        width: 500px;
-        height: 350px;
-        max-width: 500%;
-        padding: 15px;
-    }
-
     /* MAPA y CONTACTO */
 
-    .centrado{
+    /* .centrado{
         display: flex;
         align-items: center;
         margin-bottom: 5%;
@@ -606,17 +595,15 @@ th, td {
         align-items: center;
     
     }
-}
+} */
 
-@media screen and (max-width: 360px){
-      /* Header */
+/* @media screen and (max-width: 360px){
     header{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 3fr;
         background-color: black;
         align-items: flex-start;
-    
     }
     .menu ul{
         text-decoration: none;
@@ -642,7 +629,7 @@ th, td {
         font-size: 16px;
         color: rgb(255, 255, 255);
         text-align: left;
-        }
+    }
     .piezasHeader{
         display: flex;
         flex-direction: column;
@@ -668,10 +655,6 @@ th, td {
         justify-content: center;
         margin: 0 auto;
     }
-    /* BODY INDEX */
-
-    /* Estilos de textos */
-
     .titleH1{
         font-family: Fira Sans, sans-serif;
         font-size: 30px;
@@ -679,7 +662,6 @@ th, td {
         animate__slideInLeft
         
     }
-
     .subtituloMain{
         font-family: Fira Sans, sans-serif;
         font-size: 18px;
@@ -744,14 +726,11 @@ th, td {
         margin-top: 10%;
         margin-bottom: 10%;
     }
-    /* index portfolio */
-
     .mosaicoPortfolio{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-content: center;
-
     }
     .mosaicoPortfolio img{
         max-width: 250px;
@@ -765,7 +744,6 @@ th, td {
         flex-direction: column;
         justify-content:space-around;
         align-items: center;
-        
     }
     .mosaicoAudiovisualIframe{
         width: 280px;
@@ -773,15 +751,12 @@ th, td {
         max-width: 280%;
         padding: 10px;
     }
-        
     .perfil img{
         min-width: none;
         max-height: 180px;
         border-radius: 500px;
         padding: 20px;
     }
-
-    /* CLIENTES */
     .mosaicoClientes{
         display: flex;
         flex-direction: row;
@@ -799,7 +774,6 @@ th, td {
         border-radius: 7px;
     
     }
-    /* FORMATOS DE TABLA */
     table {
         display: flex;
         width: 80%;
@@ -809,7 +783,6 @@ th, td {
         padding-bottom: 5%;
         text-align: left;
     }
-
     th, td {
         font-size: 16px;
         font-family: sarabun, sans-serif;
@@ -822,11 +795,9 @@ th, td {
         border-collapse: collapse;
         padding: 10px;
         caption-side: bottom;
-    }
+    } */
 
-    /* CONTACTO Y MAPA */
-    
-    input{
+    /* input{
         display: inline-block;
         font-family: sarabun, sans-serif;
         font-size: 17px;
@@ -904,4 +875,4 @@ th, td {
         right: 10px;
         z-index: 99;
     }
-}
+} */
