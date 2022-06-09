@@ -1,0 +1,75 @@
+.flexMainDescripcion{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    justify-content: space-between;
+    @media screen and (max-width: 1054px){
+        align-items: center;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
+.centrado{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.mosaicoPortfolio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    img{
+        max-width: 80%;
+        height: auto;
+        margin: 2%;
+        padding: 0 auto;
+        border-radius: 7px;
+    }
+}
+.mosaicoClientes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    text-align: center;
+    color: aliceblue;
+    img{
+        width: 60%;
+        height: auto;
+        margin: 20px;
+        padding: 0 auto;
+        background-color: rgb(255, 255, 255);
+        border-radius: 7px;
+        @media screen and (max-width: 1054px){
+            max-height: 300px;
+            margin: 30px 20px;
+        }
+    }
+}
+.perfil{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    @media screen and (max-width: 1054px){
+        flex-direction: column;
+
+    }
+    img{
+        width: none;
+        max-height: 300px;
+        border-radius: 500px;
+        padding: 40px;
+
+    }
+}
+.elementoVideo{
+    margin-bottom: 5%;
+}

@@ -1,0 +1,17 @@
+/*BOTONES*/
+
+.btnModificado{
+    color: whitesmoke;
+    background-color:#b6255d;
+    border-color: #b6255d;
+    &:hover{
+        color: rgb(0, 0, 0);
+        background-color:#de749d;
+        border-color: #de749d;
+        box-shadow: 0 0 20px rgb(255, 255, 255)
+
+    }
+}
+.buttonMainContainer{
+    margin-top: 10%;
+}

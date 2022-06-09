@@ -1,0 +1,70 @@
+/* Sección Contacto y ordenamiento forms - mapa - textos */
+
+.centrado{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+}
+input{
+    display: inline-block;
+    font-family: sarabun, sans-serif;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    align-items: flex-start;
+    margin: 2% 7%;
+    padding: 2%;
+    min-width: none;
+    max-width: 0 auto;
+    border-radius: 7px;
+}
+textarea{
+    display: inline-block;
+    font-family: sarabun, sans-serif;
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    align-items: flex-start;
+    margin: 5% 7%;
+    padding: 3%;
+    min-width: 0 auto;
+    max-width: 0 auto;
+    min-height: 300px;
+    max-height: 600px;
+    border-radius: 7px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: left;
+    align-items: stretch;
+    padding: 30px;
+
+}
+.mapa{
+    width: 100%;
+    height: 700px;
+    margin: 0 auto;
+}
+.boxMain{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cardModificada{
+    height: 750px;
+}
+.rowCenter{
+    display: flex;
+    align-items:stretch;
+    margin: 0 auto;
+}
+.datosUbicacion{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+}

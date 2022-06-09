@@ -1,0 +1,114 @@
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
+    @media screen and (max-width: 1054px){
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+        align-items: center;
+    }
+}
+.menu{
+    ul{
+        text-decoration: none;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 10px;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        @media screen and (max-width: 1054px){
+            justify-content: center;
+        }
+    }
+}
+nav{
+    ul{
+        li{
+            padding-left: 15px;
+            align-items: center;
+            justify-content: start;
+            margin-top: 4%;
+            margin-left: 2%;
+            @media screen and (max-width: 1054px){
+                padding-left: 0;
+                justify-content: center;
+                margin: 15px;
+            }
+            a{
+                display: inline-block;
+                text-decoration: none;
+                font-weight: 800;
+                border: 2px;
+                font-family: fira sans;
+                font-size: 18px;
+                color: $color-texto-menu;
+            }
+        }
+    }
+}
+.activo{
+    text-decoration: underline;
+}
+.piezasHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    @media screen and (max-width: 1054px){
+        flex-direction: column;
+    }
+}
+.iconosRedes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    margin-right: 5%;
+    @media screen and (max-width: 1054px){
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        margin: 0;
+        max-width: 900px;
+    }
+    img{
+        padding: 10px;
+        @media screen and (max-width: 1054px){
+            margin: 0 auto;
+        }
+    }
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    @media screen and (max-width: 1054px){
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+/*FOOTER*/
+
+footer{
+    font-family: sarabun, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin: 20px;
+    color: rgb(130, 130, 131);
+    text-align: center;
+}
+
+/*Whatsapp Flotante*/
+
+.whatsappFlotante img {
+    padding: 18px 30px;
+    max-width: 60px;
+    position: fixed;
+    z-index: 99;
+}

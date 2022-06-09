@@ -1,0 +1,42 @@
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+/* FAMILIA DE FUENTES */
+/*Fuente h1: Fira Sans sans-serif
+Cuerpo y otros elementos de texto:
+Sarabun, sans-serif*/
+
+/* PROPIEDADES DEL BAKCGROUND */
+
+body {
+    background: linear-gradient(-45deg, #d24c24, #b6255d, #1398c8, #021914);
+    background-size: 100%;
+    animation: gradient 13s ease infinite;
+    height: 100%;
+    overflow-x: hidden;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.ordenMain{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin: 10% 8%;
+    @media screen and (max-width: 1054px){
+        grid-template-columns: 1fr;
+        margin: 30% 8%;
+        text-align: center;
+    }
+}
