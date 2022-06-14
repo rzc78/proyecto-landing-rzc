@@ -1,8 +1,10 @@
+@import "./base/maps";
 @import "./base/variables";
+@import "./base/extends";
+@import "./base/mixin";
 @import "./base/background";
 @import "./base/header-footer";
 @import "./base/estilosTextos";
-@import "./base/extends";
 
 @import "./components/posicionamientoImg";
 @import "./components/btns";

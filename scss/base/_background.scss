@@ -12,9 +12,9 @@ Sarabun, sans-serif*/
 /* PROPIEDADES DEL BAKCGROUND */
 
 body {
-    background: linear-gradient(-45deg, #d24c24, #b6255d, #1398c8, #021914);
+    background: map-get($propiedades-body, fondo-degradado);
     background-size: 100%;
-    animation: gradient 13s ease infinite;
+    animation: map-get($propiedades-body, tiempo-animacion-medio);
     height: 100%;
     overflow-x: hidden;
 }

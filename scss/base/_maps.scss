@@ -1,0 +1,15 @@
+$propiedades-body: (
+    color-fondo-base: #ffffff,
+    fondo-degradado: linear-gradient(-45deg, #d24c24, #b6255d, #1398c8, #021914),
+    tamaño-baground: 100%,
+    tiempo-animacion-corto: gradient 7s ease infinite,
+    tiempo-animacion-medio: gradient 13s ease infinite,
+    tiempo-animacion-largo: gradient 20s ease infinite,
+)
+/*body {
+    background: linear-gradient(-45deg, #d24c24, #b6255d, #1398c8, #021914);
+    background-size: 100%;
+    animation: gradient 13s ease infinite;
+    height: 100%;
+    overflow-x: hidden;
+}*/
