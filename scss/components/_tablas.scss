@@ -1,23 +1,12 @@
-/*TABLA DE MAIN*/
 
-table {
-    display: flex;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 5%;
-    text-align: left;
+.barraNivel{
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 5%;
+    .barra{
+        margin: 5%;
+    }
 }
-th, td {
-    font-size: 16px;
-    font-family: sarabun, sans-serif;
-    font-size: 17px;
-    color: rgb(255, 255, 255);
-    width: 25%;
-    text-align: left;
-    vertical-align: middle;
-    border: 1px solid rgb(187, 184, 184);
-    border-collapse: collapse;
-    padding: 15px;
-    caption-side: bottom;
+.barraSetting{
+    background-color: rgb(104, 33, 235);
 }

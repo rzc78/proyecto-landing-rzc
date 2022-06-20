@@ -14,9 +14,10 @@ Sarabun, sans-serif*/
 body {
     background: map-get($propiedades-body, fondo-degradado);
     background-size: 100%;
-    animation: map-get($propiedades-body, tiempo-animacion-medio);
+    animation: map-get($propiedades-body, tiempo-animacion-corto);
     height: 100%;
     overflow-x: hidden;
+    
 }
 @keyframes gradient {
     0% {
@@ -29,11 +30,19 @@ body {
         background-position: 0% 50%;
     }
 }
+
+.fondoHabilidades{
+    background-color: rgba(255,255,255,0.3) ;
+    border-radius: 9px;
+    padding: 3%;
+    margin: 3% 9%;
+}
 .ordenMain{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    margin: 10% 8%;
+    margin: 15% 8%;
+
     @media screen and (max-width: 1054px){
         grid-template-columns: 1fr;
         margin: 30% 8%;

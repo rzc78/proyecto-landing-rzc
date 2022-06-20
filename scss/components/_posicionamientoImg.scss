@@ -12,20 +12,6 @@
 .centrado{
     @extend %centradoElementos;
 }
-.mosaicoPortfolio{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: center;
-    img{
-        max-width: 80%;
-        height: auto;
-        margin: 2%;
-        padding: 0 auto;
-        border-radius: 7px;
-    }
-}
 .mosaicoClientes{
     display: flex;
     flex-direction: row;
@@ -63,5 +49,54 @@
     }
 }
 .elementoVideo{
-    margin-bottom: 5%;
+    margin-bottom: 3%;
+}
+.contenedorPortfolio{
+    margin:5%;
+}
+.contenedorClientes{
+    margin:5%;
+}
+.logosTools{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 10%;
+        img{
+            height: 76px;
+        }
+}
+.carousel-item{
+    img{
+        border-radius: 7px;
+    }
+}
+.containerGaleria {
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+.galeriaIndex {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -1rem -1rem;
+}
+.galeria-item {
+	flex: 300px;
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+.galeria-imagen {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+    border-radius: 7px;
+	transition: transform 400ms ease-out;
+    &:hover{
+        transform: scale(1.15);
+    }
 }

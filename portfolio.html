@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,800;1,200&family=Sarabun:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <meta name="description" content="Rodrigo Zalazar Cavalleris, servicios de creación de contenidos audiovisuales y gráficos. Servicios de desarrollo web." />
     <meta name="keywords" content="desarrollo web, producción audiovisual, servicios para empresas, pyme, comunicación, estrategias"/>
     <title>RZC-Portfolio</title>
@@ -42,7 +41,7 @@
         </div>
     </header>
     <main>
-        <section>
+        <section class="contenedorPortfolio">
             <div class="animate__animated animate__slideInLeft">
                 <h1 class="subtitulo">Trabajos y proyectos</h1>
             </div>
@@ -63,25 +62,77 @@
             <article data-aos="fade-up">
                 <h2 class="subtitulo">Gráficos y editoriales</h2>
                 <p class="cuerpo">He participado en diferentes proyectos gráficos y editoriales para empresas e instituciones. Además de la creación de piezas gráficas para proyectos editoriales, también se me presentó la oportunidad de realizar trabajos mediante el proceso creativo completo (tanto desde el diseño, pasando por el estudio de mercado, hasta llegar a la implementación del mismo. ¡Te invito a ver algunos!</p>
+                <div class="ratio ratio-16x9 elementoVideo">
+                    <iframe class="elementoVideo" title="REVISTA Digital" src="https://www.scribd.com/embeds/578940548/content?start_page=1&view_mode=scroll&access_key=key-EutQ4dqTzjUQV4pwq4T5" tabindex="0" data-auto-height="true" data-aspect-ratio="0.7080062794348508" scrolling="no" frameborder="0"></iframe>
+                </div>
                 <!--van 2 iframes de trabajos hechos para gráfica, subidos a alguna plataforma de visualización-->
             </article>
             <article data-aos="fade-up">
                 <h2 class="subtitulo">Fotografía</h2>
                 <p class="cuerpo">Buscando flexibilidad a la hora de satisfacer a los clientes, llegamos desde coberturas periodísticas, contrataciones para espectáculos, como así también trabajos para grandes eventos deportivos y artísticos. Todo eso, junto a la tradicional fotografía de producto, para que los clientes tengan sus catálogos de productos actualizados permanentemente.</p>
-                <div class="mosaicoPortfolio">
-                    <img src="./assets/images/rzc-muestra.jpg" alt="imagen festival">
-                    <img src="./assets/images/rzc-muestra-2.jpg" alt="imagen recital">
-                    <img src="./assets/images/rzc-muestra-3.jpg" alt="imagen recital2">
-                    <img src="./assets/images/rzc-muestra-4.jpg" alt="obra de teatro libertador">
-                    <img src="./assets/images/rzc-muestra-5.jpg" alt="obra de teatro">
-                    <img src="./assets/images/rzc-muestra-6.jpg" alt="paisaje escultura">
-                    <img src="./assets/images/rzc-muestra-7.jpg" alt="estatuillas premios deporte">
-                    <img src="./assets/images/rzc-muestra-8.jpg" alt="cena entrega de premios mesa preparada">
-                    <img src="./assets/images/rzc-muestra-9.jpg" alt="producto makeup">
-                    <img src="./assets/images/rzc-muestra-10.jpg" alt="boda abrazo">
-                    <img src="./assets/images/rzc-muestra-11.jpg" alt="boda velas encendidas">
-                    <img src="./assets/images/rzc-muestra-12.jpg" alt="boda acta de matrimonio">
-                </div>
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="./assets/images/rzc-muestra.jpg" alt="imagen festival" class="d-block w-100" alt="baile tradicional en festival nacional">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-2.jpg" class="d-block w-100" alt="baile tradicional en festival nacional">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-3.jpg" class="d-block w-100" alt="recital internacional en Córdoba, Argentina">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-4.jpg" class="d-block w-100" alt="Performance sobre el escenario en el Teatro San Martín de Córdoba">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-5.jpg" class="d-block w-100" alt="performance sobre el escenario en teatro">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-6.jpg" class="d-block w-100" alt="escultura metálica con cielo de fondo en parque público">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-7.jpg" class="d-block w-100" alt="estatuillas premios deportivos - Río Cuarto">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-8.jpg" class="d-block w-100" alt="mesa de gala en evento corporativo">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-9.jpg" class="d-block w-100" alt="sesión de foto producto para makeup. Una persona sopla sobre un pincel con pigmentos">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-10.jpg" class="d-block w-100" alt="grupo de personas abrazadas en una boda">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-11.jpg" class="d-block w-100" alt="altar preparado para recibir a los futuros recien casados">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-12.jpg" class="d-block w-100" alt="libro de registro civil minutos antes de ser firmado por la pareja en un casamiento">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-13" class="d-block w-100" alt="personas en un casamiento al aire libre">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-18.jpg" class="d-block w-100" alt="drive de una tenista en la Billie Jean King Cup">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-15.jpg" class="d-block w-100" alt="festejo de tenista tras un punto en el Córdoba Open atp250">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-16.jpg" class="d-block w-100" alt="segmento vip de un evento deportivo internacional">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/images/rzc-muestra-17.jpg" class="d-block w-100" alt="botella de vino en un evento social foto producto">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </article>
             <article data-aos="fade-up">
                 <h2 class="subtitulo">Animaciones</h2>
@@ -98,10 +149,8 @@
             </article>
         </section>
     </main>
-    <div class="whatsappFlotante">
-        <a href="https://web.whatsapp.com" target="_blank"><img src="./assets/images/whatsapp-2.png" alt="icono de whatsapp"></a>
-    </div>
     <footer>
+        <a href="https://github.com/rzc78" target="_blank"><img src="./assets/images/github-16.png" alt="github"></a>
         <p>© Rodrigo Zalazar Cavalleris - Desarrollo: Rodrigo Zalazar Cavalleris Reservados todos los derechos</p>
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
