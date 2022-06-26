@@ -45,6 +45,9 @@ nav{
                 font-family: fira sans;
                 font-size: 18px;
                 color: $color-texto-menu;
+                &:hover{
+                    color:rgb(106, 52, 132);
+                }
             }
         }
     }
@@ -102,4 +105,10 @@ footer{
     margin: 20px;
     color: rgb(217, 217, 222);
     text-align: center;
+    a{
+        &:hover{
+            filter:invert(100%);
+        }
+    }
 }
+
