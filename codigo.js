@@ -92,24 +92,24 @@ function seleccionarServicio(){
 function mostrarDesarrolloWeb(){
     desarrolloWeb=prompt("Dentro del servicio de Desarrollo web, contamos con tres variantes de productos. Elegí el que más te convenga, según tus necesidades:\n\n1)Desarrollo Web Básico: incluye un sitio web con 5 páginas y subida al servidor con el producto final terminado. No incluye servicios de tiendas y/o interacciones complejas. \n\n2)Desarrollo Web + Tienda: Al servicio desarrollo web, se le suma la gestión y construcción de una tienda web completa\n\n3)Desarrollo Web con servicio de diseño gráfico de todo el contenido");
     if(desarrolloWeb==1){
-        confirma=prompt("El costo del servicio es de $"+PreciosDesWeb[0]+" .Presioná S o N para confirmar y registrar tus datos");
-        if ((confirma=="S")||(confirma=="s")){
+        confirma=prompt("El costo del servicio es de $"+PreciosDesWeb[0]+" .Presioná S o N para confirmar y registrar tus datos").toUpperCase();
+        if ((confirma=="S")){
             precio=PreciosDesWeb[0];
-            formulario(servDesarrolloWeb[0]);
+            formulario(servDesarrolloWeb[0]);ß
             alert("Gracias! (constructor en consola con datos del usuario");
-        }else if ((confirma=="N")||(confirma=="n")){
+        }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
         }else{
             alert("El valor ingresado es incorrecto")
             mostrarDesarrolloWeb()
         }
     }else if(desarrolloWeb==2){
-        confirma=prompt("El costo del servicio es de $ "+PreciosDesWeb[1]+" .Presioná S o N para confirmar y registrar tus datos");
-        if ((confirma=="S")||(confirma=="s")){
+        confirma=prompt("El costo del servicio es de $ "+PreciosDesWeb[1]+" .Presioná S o N para confirmar y registrar tus datos").toUpperCase();
+        if ((confirma=="S")){
             precio=PreciosDesWeb[1];
             formulario(servDesarrolloWeb[1])
             alert("Gracias! (constructor en consola con datos del usuario");
-        }else if ((confirma=="N")||(confirma=="n")){
+        }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
         }else{
             alert("El valor ingresado es incorrecto")
@@ -117,12 +117,12 @@ function mostrarDesarrolloWeb(){
             
         }
     }else if(desarrolloWeb==3){
-        confirma=prompt("El costo del servicio es de $ "+PreciosDesWeb[2]+" .Presioná S o N para confirmar y registrar tus datos");
-        if ((confirma=="S")||(confirma=="s")){
+        confirma=prompt("El costo del servicio es de $ "+PreciosDesWeb[2]+" .Presioná S o N para confirmar y registrar tus datos").toUpperCase();
+        if ((confirma=="S")){
             precio=PreciosDesWeb[2];
             formulario(servDesarrolloWeb[2])
             alert("Gracias! (constructor en consola con datos del usuario");
-        }else if ((confirma=="N")||(confirma=="n")){
+        }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
         }else{
             alert("El valor ingresado es incorrecto")
@@ -137,22 +137,22 @@ function mostrarDesarrolloWeb(){
 function mostrarDisenio(){
     disenioGrafico=prompt("Disponemos de dos servicios de diseño gráfico. Elegí la opción que más te convenga:\n1)Diseño editorial: enfocado en el diseño de piezas para impresión, revistas, folletos y gran formato\n2)Diseño gráfico para sitios web: construcción de piezas a medida para vestir sitios web y gestión de imagen de marca");
     if(disenioGrafico==1){
-        confirma=prompt("Este servicio, por ser complejo y sujeto a una gran variedad de proyectos, debe ser presupuestado cumpliendo otros requisitos. Presioná S si te interesa y nos contactamos, sino N para cancelar");
-        if ((confirma=="S")||(confirma=="s")){
+        confirma=prompt("Este servicio, por ser complejo y sujeto a una gran variedad de proyectos, debe ser presupuestado cumpliendo otros requisitos. Presioná S si te interesa y nos contactamos, sino N para cancelar").toUpperCase();
+        if ((confirma=="S")){
             formulario(servDisenioGrafico[0]);
-        }else if ((confirma=="N")||(confirma=="n")){
+        }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
         }else{
             alert("El valor ingresado es incorrecto");
             mostrarDisenio()
         }
     }else if(disenioGrafico==2){
-        confirma=prompt("El costo estimado del servicio para un sitio web de hasta 6 páginas es de $ "+PreciosDisenio+" .Presioná S o N para confirmar si estás interesado y registrar tus datos");
-        if ((confirma=="S")||(confirma=="s")){
+        confirma=prompt("El costo estimado del servicio para un sitio web de hasta 6 páginas es de $ "+PreciosDisenio+" .Presioná S o N para confirmar si estás interesado y registrar tus datos").toUpperCase();
+        if ((confirma=="S")){
             precio=PreciosDisenio;
             formulario(servDisenioGrafico[1])
             alert("Gracias! (constructor en consola con datos del usuario");
-        }else if ((confirma=="N")||(confirma=="n")){
+        }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
         }else{
             alert("El valor ingresado es incorrecto"); 
