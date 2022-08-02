@@ -95,7 +95,7 @@ function mostrarDesarrolloWeb(){
         confirma=prompt("El costo del servicio es de $"+PreciosDesWeb[0]+" .Presioná S o N para confirmar y registrar tus datos").toUpperCase();
         if ((confirma=="S")){
             precio=PreciosDesWeb[0];
-            formulario(servDesarrolloWeb[0]);ß
+            formulario(servDesarrolloWeb[0]);
             alert("Gracias! (constructor en consola con datos del usuario");
         }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
@@ -107,7 +107,7 @@ function mostrarDesarrolloWeb(){
         confirma=prompt("El costo del servicio es de $ "+PreciosDesWeb[1]+" .Presioná S o N para confirmar y registrar tus datos").toUpperCase();
         if ((confirma=="S")){
             precio=PreciosDesWeb[1];
-            formulario(servDesarrolloWeb[1])
+            formulario(servDesarrolloWeb[1]);
             alert("Gracias! (constructor en consola con datos del usuario");
         }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
@@ -120,7 +120,7 @@ function mostrarDesarrolloWeb(){
         confirma=prompt("El costo del servicio es de $ "+PreciosDesWeb[2]+" .Presioná S o N para confirmar y registrar tus datos").toUpperCase();
         if ((confirma=="S")){
             precio=PreciosDesWeb[2];
-            formulario(servDesarrolloWeb[2])
+            formulario(servDesarrolloWeb[2]);
             alert("Gracias! (constructor en consola con datos del usuario");
         }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
