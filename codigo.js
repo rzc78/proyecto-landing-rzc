@@ -12,48 +12,88 @@ let telefono;
 let email;
 let precio;
 let servElegido;
+let servBuscado;
 
-const PreciosDesWeb=[85000, 50000, 105000];
+const PreciosDesWeb=[85000, 50000, 105000, 145000, ];
 const PreciosDisenio=[30000];
+const PreciosFoto=[3000, 100, 1500];
 
 const servDesarrolloWeb=[
     {
         codigo: 001,
-        servicio:"Diseño Web Básico",
+        servicio:"DISEÑO WEB BÁSICO",
         características:"Incluye un sitio web con 5 páginas y subida al servidor con el producto final terminado. No incluye servicios de tiendas y/o interacciones complejas",
         precio: 85000,
         observaciones: "No incluye diseño gráfico de piezas puntuales como logos, manipulación de imágenes, etc"
     },
     {
         codigo: 002,
-        servicio:"Diseño Web y tienda",
+        servicio:"DISEÑO WEB Y TIENDA",
         características:"Desarrollo web básico + gestión y construcción de una tienda web completa con funcionalidades de carro de compra\n\n3)Desarrollo Web con servicio de diseño gráfico de todo el contenido",
         precio: 150000,
         observaciones: "No incluye diseño gráfico de piezas puntuales como logos, manipulación de imágenes, etc"
     },
     {
         codigo: 003,
-        servicio:"Diseño Web Integral",
+        servicio:"DISEÑO WEB INTEGRAL",
         características:"Desarrollo Web con funcionalidades completas y diseño gráfico de todo el contenido. Construcción completa de la identidad visual del sitio (recomendado)",
         precio: 105000,
         observaciones: "No incluye tienda"
+    },
+    {
+        codigo: 004,
+        servicio:"PAGINA WEB DESARROLLADA EN WORDPRESS",
+        características:"Desarrollo Web con funcionalidades completas bajo los parámetros de este sistema. Automatización de servicios alojados en el sistema y 10 hs de entrenamiento para subida y mantenimiento de la web",
+        precio: 145000,
+        observaciones: "Incluye 10 hs de capacitación virtual al RRHH mediante plataforma de ZOOM"
     }
 ];
 
 const servDisenioGrafico=[
     {
         codigo:101,
-        servicio: "Diseño gráfico editorial" ,
+        servicio: "DISEÑO GRÁFICO EDITORIAL" ,
         características: "Enfocado en el diseño de piezas para impresión, revistas, folletos y gran formato\n2)Diseño gráfico para sitios web: construcción de piezas a medida para vestir sitios web y gestión de imagen de marca.",
         precio: "A convenir, dependiendo del tamaño y características del proyecto",
         observaciones: "Enfocado en diseño de revistas y dossiers intitucionaes y de prensa."
     },
     {
         codigo:102,
-        servicio: "Diseño gráfico WEB",
+        servicio: "DISEÑO GRÁFICO WEB",
         caracteristicas: "Diseño gráfico para sitios web: construcción de piezas a medida para vestir sitios web y gestión de imagen de marca",
         precio: 30000,
         observaciones: "No incluye la creación de una identidad de marca, sino de adaptaciones de lo existente y la creación de piezas a medida."
+    }
+];
+
+const servFotografia=[
+    {
+        codigo: 201,
+        servicio:"COBERTURA DE EVENTOS DEPORTIVOS",
+        características:"",
+        precio: 3000,
+        observaciones: "El precio es por jornada de trabajo de hasta 3 hs. Precio sujeto a eventos de duración mayor y continuidad del mismo. Viáticos no incluídos."
+    },
+    {
+        codigo: 202,
+        servicio:"FOTOGRAFIA DE ESTUDIO",
+        características:"Fotografía publicitaria de personas para uso editorial, tiendas, publicidades de todo tipo.",
+        precio: "A convenir",
+        observaciones: "Sujeto al tamaño de producción, personas involucradas y requerimientos técnicos y de recursos humanos para desarrollar el trabajo."
+    },
+    {
+        codigo: 203,
+        servicio:"FOTOGRAFIA DE PRODUCTOS",
+        características:"Fotografía de bodegones en estudio. Utilización de flashes y fondos especiales para productos alimenticios, opticas, fotografía para e-commerce, entre otras.",
+        precio: 100,
+        observaciones: "El valor expresado es por unidad fotografiada. A convenir paquetes de productos en cantidades superiores a 50 unidades."
+    },
+    {
+        codigo: 204,
+        servicio:"RETOQUE DIGITAL",
+        características:"Retoque digital en Photoshop. Sobre imágenes NEFF o RAW, retoque de fotografía con quitado de detalles (poro, suciedad, imperfecciones), corrección de color. Reacondicionamiento general de detalles. Apto impresión de gran formato, digital, editorial.",
+        precio: 1500,
+        observaciones: "El precio expresado es por hora de trabajom sujeto a cantidad de originales a restaurar."
     }
 ];
 
@@ -65,15 +105,15 @@ function seleccionarAccion(){
    if(derivador==1){
         seleccionarServicio();
         }else if(derivador==2){
-        alert("En consola aparecen los servicios disponibles");
-        console.log(servDesarrolloWeb);
-        console.log(servDisenioGrafico);
+        buscarServ()
+        formulario()
         }else{
         for (let i=1; i<2; i++){
             alert("El valor ingresado es inexistente.")
             seleccionarAccion();
     }
-}}
+}
+}
 
 function seleccionarServicio(){
     servicio=parseInt(prompt("Elegí el servicio que deseas contratar:\n1)Desarrollo Web\n2)Diseño gráfico para RRSS"));
@@ -164,12 +204,21 @@ function mostrarDisenio(){
     }
 }
 
+function buscarServ(){
+    servBuscado=prompt("Buscá alguno de los servicios que tenemos para ofrecerte. Ingresá el servicio que querés buscar").toUpperCase();
+    const resultado=servDesarrolloWeb.filter((item) => item.servicio.includes(servBuscado));
+    const resultado2=servDisenioGrafico.filter((item) => item.servicio.includes(servBuscado));
+    const resultado3=servFotografia.filter((item) => item.servicio.includes(servBuscado));
+    console.log (resultado, resultado2, resultado3);
+
+}
+
 function formulario(precio){
     nombreApellido=prompt("Ingresá tu nombre y apellido");
     telefono=prompt("Ingresá tu teléfono");
     email=prompt("Ingresá tu email");
     servElegido=precio;
-    console.log("Pronto te estaremos llamando para informarte sobre el servicio que elegiste");
+    console.log("Pronto te estaremos llamando para informarte más sobre el servicio que elegiste");
     
 }
 
@@ -181,3 +230,4 @@ function Persona(nombre, telefono, mail, servicioConsultado){
 }
 const cliente=new Persona(nombreApellido, telefono, email, servElegido);
 console.log(cliente)
+
