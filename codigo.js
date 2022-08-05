@@ -136,7 +136,7 @@ function mostrarDesarrolloWeb(){
         if ((confirma=="S")){
             precio=PreciosDesWeb[0];
             formulario(servDesarrolloWeb[0]);
-            alert("Gracias! (constructor en consola con datos del usuario");
+            alert("Gracias! (constructor en consola con datos del usuario)");
         }else if ((confirma=="N")){
             alert("Gracias, hasta la próxima");
         }else{
@@ -218,7 +218,9 @@ function formulario(precio){
     telefono=prompt("Ingresá tu teléfono");
     email=prompt("Ingresá tu email");
     servElegido=precio;
-    console.log("Pronto te estaremos llamando para informarte más sobre el servicio que elegiste");
+    console.log("Pronto te estaremos llamando para informarte más sobre el servicio que elegiste.\nLa consulta fue generada el día "+(new Date())+"sobre el siguiente producto:\n");
+    console.log(servElegido)
+   
     
 }
 
