@@ -250,6 +250,14 @@ footer {
       font-size: 15px;
       margin: 60px 80px; } }
 
+.tituloFormulario {
+  font-family: Fira Sans, sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  color: #d1d1d9;
+  text-align: center;
+  margin: 5% 7%; }
+
 .flexMainDescripcion {
   display: flex;
   flex-direction: column;
@@ -346,13 +354,19 @@ footer {
     transform: scale(1.15); }
 
 .ordenCard {
-  margin-top: 10px; }
+  display: flex;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 17px; }
 
 .cardModificada {
   padding: 5px;
   margin: 40px;
   background-color: rgba(255, 255, 255, 0);
   position: relative; }
+
+.formCentrado {
+  margin: 0 auto; }
 
 /*BOTONES*/
 .btnModificado {

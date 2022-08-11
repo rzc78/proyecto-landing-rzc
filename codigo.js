@@ -4,20 +4,15 @@
 
 //Aquí hay que eliminar variables que no se van a utilizar.
 
-let derivador;
 let servicio;
-let desarrolloWeb;
-let disenioGrafico;
-let confirma;
-let nombreApellido;
+let nombre;
+let apellido;
 let telefono;
 let email;
-let precio;
 let servElegido;
 let servBuscado;
 let mostrarRta;
 let mensaje;
-
 
 
 const PreciosDesWeb=[85000, 50000, 105000, 145000, ];
@@ -119,7 +114,7 @@ function seleccionarServicioPrueba(){
     servicio=parseInt(prompt("Elegí el servicio que deseas contratar:\n1)Desarrollo Web\n2)Diseño gráfico para RRSS"));
     if(servicio==1){
         const selectDW=document.createElement("select");
-        selectDW.className="form-select";
+        selectDW.className="form-select ordenCard";
         selectDW.setAttribute("id", "eleccion")
         for(const item of servDesarrolloWeb){
         selectDW.innerHTML+=`
@@ -129,10 +124,10 @@ function seleccionarServicioPrueba(){
         contenedor.append(selectDW);
         }
         selectDW.onchange=function(){
-            seleccionado=selectDW.value;
-            formulario(seleccionado);
+            // const itemSeleccionado=selectDW.value;
+            formulario()
         }
-
+        
     }else if(servicio==2){
         const selectDG=document.createElement("select");
         selectDG.className="form-select";
@@ -144,10 +139,9 @@ function seleccionarServicioPrueba(){
         contenedor.append(selectDG);
         }
         selectDG.onchange=function(){
-            seleccionado=selectDG.value;
-            formulario(seleccionado);
+            // seleccionado=selectDG.value;
+            formulario();
         }
-
     }else{
         for (let i=1; i<2; i++){
             alert("El valor ingresado es inexistente.")
@@ -156,14 +150,12 @@ function seleccionarServicioPrueba(){
     }
 }
 
-
 function buscarServ(){
     servBuscado=prompt("Buscá alguno de los servicios que tenemos para ofrecerte. Ingresá el servicio que querés buscar").toUpperCase();
     const resultado=servDesarrolloWeb.filter((item) => item.servicio.includes(servBuscado));
     const resultado2=servDisenioGrafico.filter((item) => item.servicio.includes(servBuscado));
     const resultado3=servFotografia.filter((item) => item.servicio.includes(servBuscado));
     console.log (resultado, resultado2, resultado3);
-    // const ppalBusqueda=document.getElementById("mostrarServ");
     const servBusc=document.createElement("cards");
     servBusc.className="card text-center"
     for(const item of resultado){
@@ -219,25 +211,45 @@ function buscarServ(){
 
 }
 
-//FALTA INTEGRAR LA PARTE DEL FORMULARIO AL DOM Y USANDO EVENTOS
+//FALTA traer el evento consultado e integrarlo a la función. 
 
 function formulario(precio){
-    nombreApellido=prompt("Ingresá tu nombre y apellido");
-    telefono=prompt("Ingresá tu teléfono");
-    email=prompt("Ingresá tu email");
-    servElegido=precio;
-    console.log("Pronto te estaremos llamando para informarte más sobre el servicio que elegiste.\nLa consulta fue generada el día "+(new Date())+"sobre el siguiente producto:\n");
-    console.log(servElegido)
-   
     
+    const formularioDatos=document.getElementById("formulario").innerHTML=`
+    <form class="col-xl-6 col-lg-6 col-xs formCentrado">
+        <h2 class="subtitulo">Perfecto. Ahora dejanos tus datos de contacto y listo. Ya tenés tu presupuesto</h2>
+        <input id="nombre" type="text" placeholder="Ingresa tu nombre" name="name">
+        <input id="apellido" type="text" placeholder="Ingresa tu apellido" name="surname">
+        <input id="email" type="email" placeholder="Ingresa tu e-mail" name="email">
+        <input id="telefono" type="tel" placeholder="Ingresa tu teléfono" name="tel">
+        <div>
+            <input type="submit" class="btn btnModificado" value="ENVIAR">
+        </div>
+    </form>`
 }
 
-function Persona(nombre, telefono, mail, servicioConsultado){
+const datosForm=document.getElementById("formulario");
+datosForm.addEventListener("submit", validarForm);
+
+function validarForm(e){
+    e.preventDefault();
+    nombre=document.getElementById("nombre").value;
+    apellido=document.getElementById("apellido").value;
+    email=document.getElementById("email").value;
+    telefono=document.getElementById("telefono").value;
+    const cliente=new Persona(nombre, apellido, telefono, email, servElegido);
+    console.log(cliente)
+}
+
+
+
+function Persona(nombre, apellido, telefono, mail, servicioConsultado){
     this.nombre=nombre
+    this.apellido=apellido
     this.telefono=telefono
     this.mail=mail
     this.servicioConsultado=servicioConsultado
 }
-const cliente=new Persona(nombreApellido, telefono, email, servElegido);
-console.log(cliente)
+
+
 
