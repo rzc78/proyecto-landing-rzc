@@ -5,44 +5,39 @@
 //Aquí hay que eliminar variables que no se van a utilizar.
 
 let servicio;
-let nombre;
-let apellido;
-let telefono;
-let email;
 let servElegido;
 let servBuscado;
 let mostrarRta;
 let mensaje;
+const servConsultado=JSON.parse(sessionStorage.getItem(`codigoProducto`));
+const usuario=JSON.parse(sessionStorage.getItem(`usuario`));
 
-
-const PreciosDesWeb=[85000, 50000, 105000, 145000, ];
-const PreciosDisenio=[30000];
-const PreciosFoto=[3000, 100, 1500];
+const registroConsultas=[];
 
 const servDesarrolloWeb=[
     {
-        codigo: 001,
+        codigo: 10,
         servicio:"DISEÑO WEB BÁSICO",
         características:"Incluye un sitio web con 5 páginas y subida al servidor con el producto final terminado. No incluye servicios de tiendas y/o interacciones complejas",
         precio: 85000,
         observaciones: "No incluye diseño gráfico de piezas puntuales como logos, manipulación de imágenes, etc"
     },
     {
-        codigo: 002,
+        codigo: 20,
         servicio:"DISEÑO WEB Y TIENDA",
         características:"Desarrollo web básico + gestión y construcción de una tienda web completa con funcionalidades de carro de compra. Desarrollo Web con servicio de diseño gráfico de todo el contenido",
         precio: 150000,
         observaciones: "No incluye diseño gráfico de piezas puntuales como logos, manipulación de imágenes, etc"
     },
     {
-        codigo: 003,
+        codigo: 30,
         servicio:"DISEÑO WEB INTEGRAL",
         características:"Desarrollo Web con funcionalidades completas y diseño gráfico de todo el contenido. Construcción completa de la identidad visual del sitio (recomendado)",
         precio: 105000,
         observaciones: "No incluye tienda"
     },
     {
-        codigo: 004,
+        codigo: 40,
         servicio:"PAGINA WEB DESARROLLADA EN WORDPRESS",
         características:"Desarrollo Web con funcionalidades completas bajo los parámetros de este sistema. Automatización de servicios alojados en el sistema y 10 hs de entrenamiento para subida y mantenimiento de la web",
         precio: 145000,
@@ -98,7 +93,15 @@ const servFotografia=[
     }
 ];
 
-//Funcionalidad de los botones de acceso
+//HTML oculto
+
+const selectSrv=document.getElementById("selectSrv").hidden=true;
+const form=document.getElementById("contenedorFormulario").hidden=true;
+// const contenedorRender=document.getElementById("impresionResultados").hidden=true;
+// const contenedorBuscador=document.getElementById("mostrarServ").hidden=true;
+
+
+//FUNCIONALIDAD DE LOS BOTONES DE ACCESO
 
 const boton = document.getElementById("boton1")
 boton.addEventListener("click", onclick)
@@ -107,55 +110,181 @@ const boton2=document.getElementById("boton2")
 boton2.addEventListener("click",onclick)
 boton2.onclick=()=>{buscarServ()}
 
-//Para seleccionar servicios y presupuestar
+
+//FUNCIONES DE SELECCION DE SERVICIOS A PRESUPUESTAR
 
 function seleccionarServicioPrueba(){
+    const selectSrv=document.getElementById("selectSrv").hidden=false;
+    const botonContinuar=document.getElementById("btnContinuar");
+    botonContinuar.addEventListener("click", onclick)
+    botonContinuar.onclick=()=>{
+        eleccionServicio()
+        botonContinuar.hidden=true}
+}
 
-    servicio=parseInt(prompt("Elegí el servicio que deseas contratar:\n1)Desarrollo Web\n2)Diseño gráfico para RRSS"));
-    if(servicio==1){
-        const selectDW=document.createElement("select");
-        selectDW.className="form-select ordenCard";
-        selectDW.setAttribute("id", "eleccion")
-        for(const item of servDesarrolloWeb){
-        selectDW.innerHTML+=`
-        <option value="${item.codigo}">${item.servicio}</option>
-        `
-        const contenedor=document.getElementById("presupuestar");
-        contenedor.append(selectDW);
+function eleccionServicio(){
+    const opcionesPresu=document.getElementById("presupuestar");
+    const desarrolloWeb=document.createElement("p")
+    desarrolloWeb.innerHTML=`
+    <p>Elegí que servicio de los disponibles deseas presupuestar. Actualmente tenemos dos opciones para que puedas tener un presupuesto rápido: los servicios de DESARROLLO WEB, que incluyen distintas variantes a la hora de construir una web acorde a tus necesidades y el servicio de DISEÑO GRÁFICO con opciones tanto de diseño editorial, gráfico y para web.</p>`
+
+    opcionesPresu.append(desarrolloWeb)
+    const eligeServicio=document.createElement("select");
+    eligeServicio.className="form-select ordenCard";
+    eligeServicio.setAttribute("id", "eleccionCategoria")
+    eligeServicio.innerHTML+=`
+    <option selected>Elige una categoría</option>
+    <option value="1">Desarrollo Web</option>
+    <option value="2">Diseño Gráfico</option>
+    `
+    desarrolloWeb.append(eligeServicio);
+    eligeServicio.onchange=function(){
+        const valor=document.getElementById("eleccionCategoria").value;
+        if(valor==1){
+            categoriaDesarrolloWeb();
+        }else if(valor==2){
+            categoriaDisenioGrafico();
         }
-        selectDW.onchange=function(){
-            // const itemSeleccionado=selectDW.value;
-            formulario()
-        }
-        
-    }else if(servicio==2){
-        const selectDG=document.createElement("select");
-        selectDG.className="form-select";
-        for(const item of servDisenioGrafico){
-        selectDG.innerHTML+=`
-        <option value="${item.codigo}">${item.servicio}</option>
-        `
-        const contenedor=document.getElementById("presupuestar");
-        contenedor.append(selectDG);
-        }
-        selectDG.onchange=function(){
-            // seleccionado=selectDG.value;
-            formulario();
-        }
-    }else{
-        for (let i=1; i<2; i++){
-            alert("El valor ingresado es inexistente.")
-            seleccionarServicio();
-    }
     }
 }
+
+function categoriaDesarrolloWeb(){
+    const nuevo=document.getElementById("selectSrv");
+    const selectDW=document.createElement("select");
+    selectDW.className="form-select ordenCard";
+    selectDW.setAttribute("id", "eleccion")
+    selectDW.innerHTML=`
+        <option selected>Elige un servicio</option>`
+    for(const item of servDesarrolloWeb){
+        selectDW.innerHTML+=`
+        <option value="${item.codigo}">${item.servicio}</option>`
+        nuevo.append(selectDW);
+    }
+    selectDW.onchange=function(){
+        const eleccion=document.getElementById("eleccion").value;
+        sessionStorage.setItem(`codigoProducto`, eleccion);
+        formulario()
+    }
+}
+
+function categoriaDisenioGrafico(){
+    const nuevo=document.getElementById("selectSrv");
+    const selectDG=document.createElement("select");
+    selectDG.className="form-select ordenCard";
+    selectDG.setAttribute("id", "eleccion")
+    for(const item of servDisenioGrafico){
+        selectDG.innerHTML+=`
+        <option value="${item.codigo}">${item.servicio}</option>`
+        nuevo.append(selectDG);
+        }
+    selectDG.onchange=function(){
+        const eleccion=document.getElementById("eleccion").value;
+        sessionStorage.setItem(`codigoProducto`, eleccion);
+        formulario()
+    }
+}
+
+//FALTA traer el evento consultado e integrarlo a la función. 
+
+function formulario(){
+    const form=document.getElementById("contenedorFormulario").hidden=false;
+    const formDatos=document.getElementById("formulario");
+    formDatos.addEventListener("submit", validarForm);
+}
+
+function validarForm(e){
+    e.preventDefault();
+    nombre=document.getElementById("nombre").value;
+    apellido=document.getElementById("apellido").value;
+    email=document.getElementById("email").value;
+    telefono=document.getElementById("telefono").value;
+    const cliente=new Persona(nombre, apellido, telefono, email, servConsultado);
+    registroConsultas.push(cliente);
+    sessionStorage.setItem(`usuario`, JSON.stringify(registroConsultas))
+    if(servConsultado<100){
+        renderizarPresupuestoWeb()
+    }else if(servConsultado>100){
+        renderizarPresupuestoDG();
+    }
+
+}
+
+function Persona(nombre, apellido, telefono, mail, servicioConsultado){
+    this.nombre=nombre
+    this.apellido=apellido
+    this.telefono=telefono
+    this.mail=mail
+    this.servicioConsultado=servicioConsultado
+}
+
+//Find que busca el código y trae todo el objeto
+
+const resumenServConsultado1=servDesarrolloWeb.find((elemento)=>elemento.codigo==servConsultado);
+const resumenServConsultado2=servDisenioGrafico.find((elemento)=>elemento.codigo==servConsultado);
+
+function renderizarPresupuestoWeb(){
+    const impresion=document.getElementById("impresionResultados");
+    impresion.innerHTML=`
+    <h3>Presupuesto de servicios en línea</h3>
+    <p>A continuación obtendrás un extracto del presupuesto por el servicio que has solicitado:</p>
+    <p>Nombre: ${nombre}</p>
+    <p>Apellido: ${apellido}</p>
+    <p>Teléfono: ${telefono}</p>
+    <p>Correo electrónico: ${email}</p>
+    <table class="table table-striped">
+    <tr>
+        <th>Código Servicio</th>
+        <th>Servicio</th>
+        <th>Caractertísticas</th>
+        <th>Precio</th>
+        <th>Observaciones</th>
+    </tr>
+    <tr>
+        <td>${resumenServConsultado1.codigo}</td>
+        <td>${resumenServConsultado1.servicio}</td>
+        <td>${resumenServConsultado1.características}</td>
+        <td>${resumenServConsultado1.precio}</td>
+        <td>${resumenServConsultado1.observaciones}</td>
+    </tr>
+    </table>
+    `
+}
+
+function renderizarPresupuestoDG(){
+    const impresion=document.getElementById("impresionResultados");
+    impresion.innerHTML=`
+    <h3>Presupuesto de servicios en línea</h3>
+    <p>A continuación obtendrás un extracto del presupuesto por el servicio que has solicitado:</p>
+    <p>Nombre: ${nombre}</p>
+    <p>Apellido: ${apellido}</p>
+    <p>Teléfono: ${telefono}</p>
+    <p>Correo electrónico: ${email}</p>
+    <table class="table table-striped">
+    <tr>
+        <th>Código Servicio</th>
+        <th>Servicio</th>
+        <th>Caractertísticas</th>
+        <th>Precio</th>
+        <th>Observaciones</th>
+    </tr>
+    <tr>
+        <td>${resumenServConsultado2.codigo}</td>
+        <td>${resumenServConsultado2.servicio}</td>
+        <td>${resumenServConsultado2.características}</td>
+        <td>${resumenServConsultado2.precio}</td>
+        <td>${resumenServConsultado2.observaciones}</td>
+    </tr>
+    </table>`
+}
+
+//FUNCION PARA BUSCADOR DE SERVICIOS UNICAMENTE
 
 function buscarServ(){
     servBuscado=prompt("Buscá alguno de los servicios que tenemos para ofrecerte. Ingresá el servicio que querés buscar").toUpperCase();
     const resultado=servDesarrolloWeb.filter((item) => item.servicio.includes(servBuscado));
     const resultado2=servDisenioGrafico.filter((item) => item.servicio.includes(servBuscado));
     const resultado3=servFotografia.filter((item) => item.servicio.includes(servBuscado));
-    console.log (resultado, resultado2, resultado3);
+    // console.log (resultado, resultado2, resultado3);
     const servBusc=document.createElement("cards");
     servBusc.className="card text-center"
     for(const item of resultado){
@@ -210,46 +339,3 @@ function buscarServ(){
     contenedor.append(servBusc);
 
 }
-
-//FALTA traer el evento consultado e integrarlo a la función. 
-
-function formulario(precio){
-    
-    const formularioDatos=document.getElementById("formulario").innerHTML=`
-    <form class="col-xl-6 col-lg-6 col-xs formCentrado">
-        <h2 class="subtitulo">Perfecto. Ahora dejanos tus datos de contacto y listo. Ya tenés tu presupuesto</h2>
-        <input id="nombre" type="text" placeholder="Ingresa tu nombre" name="name">
-        <input id="apellido" type="text" placeholder="Ingresa tu apellido" name="surname">
-        <input id="email" type="email" placeholder="Ingresa tu e-mail" name="email">
-        <input id="telefono" type="tel" placeholder="Ingresa tu teléfono" name="tel">
-        <div>
-            <input type="submit" class="btn btnModificado" value="ENVIAR">
-        </div>
-    </form>`
-}
-
-const datosForm=document.getElementById("formulario");
-datosForm.addEventListener("submit", validarForm);
-
-function validarForm(e){
-    e.preventDefault();
-    nombre=document.getElementById("nombre").value;
-    apellido=document.getElementById("apellido").value;
-    email=document.getElementById("email").value;
-    telefono=document.getElementById("telefono").value;
-    const cliente=new Persona(nombre, apellido, telefono, email, servElegido);
-    console.log(cliente)
-}
-
-
-
-function Persona(nombre, apellido, telefono, mail, servicioConsultado){
-    this.nombre=nombre
-    this.apellido=apellido
-    this.telefono=telefono
-    this.mail=mail
-    this.servicioConsultado=servicioConsultado
-}
-
-
-

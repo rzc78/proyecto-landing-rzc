@@ -65,16 +65,43 @@
         </div>
       </section>
       <section>
-        <div id="presupuestar" class="ordenCard">
-          
-        </div>  
-        <div id="formulario">
+        <div id="selectSrv" class="cuerpoPresupuestoXs">
+          <p>Podemos presupuestar rápidamente algunos de los servicios que ofrecemos, entre ellos los de desarrollo web y diseño (web y editorial). Te invitamos a que vayas siguiendo estos sencillos pasos y en pocos segundos podrás tener un presupuesto con total validez, que confirmaremos tras recibir tus datos. Es importante que tengas en cuenta lo siguiente:</p>
+          <ul>
+            <li>No estás generando un compromiso de compra y contratación. Solamente estás construyendo un presupuesto sobre una gama de servicios que ya están estandarizados. La confirmación siempre se realizará mediante una vía mas formal y privada.</li>
+            <li>El prespuesto que sea generado estará vinculado a nuestro sistema y tendrá una validez por 15 días. Mediante esa ventana de tiempo, si decides contratar, se te respetará el precio prespuestado.</li>
+            <li>Es importante que ingreses datos correctos para que podamos comunicarnos con vos para confirmar, desechar o modificar el prespuesto, en caso de ser necesario.</li>
+          </ul>
+          <div>
+            <button id="btnContinuar"class="btn btn-primary btnInt" type="button">Continuemos</button>
+          </div>
+          <div id="presupuestar" class="ordenCard">
+          </div> 
+        </div>
+ 
 
+        <div id="contenedorFormulario">
+          <form id="formulario" class="col-xl-6 col-lg-6 col-xs formCentrado">
+            <h2 class="subtitulo">Perfecto. Ahora dejanos tus datos de contacto y listo. Ya tenés tu presupuesto</h2>
+            <input id="nombre" type="text" placeholder="Ingresa tu nombre" name="name">
+            <input id="apellido" type="text" placeholder="Ingresa tu apellido" name="surname">
+            <input id="email" type="email" placeholder="Ingresa tu e-mail" name="email">
+            <input id="telefono" type="tel" placeholder="Ingresa tu teléfono" name="tel">
+            <div>
+                <input type="submit" class="btn btnModificado" value="ENVIAR">
+            </div>
+         </form>
         </div>    
       </section>
-      <section class="cardModificada">
-        <div id="mostrarServ" class="ordenCard">
+      <section>
+        <div class= "container-fluid impresionResultadosClass" id="impresionResultados">
         </div>
+      </section>
+      <section class="cardModificada ordenCard" id="mostrarServ">
+        <div id="contenidoBusqueda">
+        </div>
+        <!-- <div id="mostrarServ" class="ordenCard">
+        </div> -->
       </section>
     </main>
     <footer>
