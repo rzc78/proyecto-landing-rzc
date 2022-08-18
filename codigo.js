@@ -1,16 +1,10 @@
 //SIMULADOR PARA PEDIDO DE PRESUPUESTOS RÁPIDOS
 
-//Todo lo que devuelve aparece por consola
-
-//Aquí hay que eliminar variables que no se van a utilizar.
-
-let servicio;
-let servElegido;
 let servBuscado;
-let mostrarRta;
-let mensaje;
-const servConsultado=JSON.parse(sessionStorage.getItem(`codigoProducto`));
-const usuario=JSON.parse(sessionStorage.getItem(`usuario`));
+
+// sessionStorage.clear(`codigoProducto`)
+
+//Arrays (van a modularse a un js diferente)
 
 const registroConsultas=[];
 
@@ -93,19 +87,20 @@ const servFotografia=[
     }
 ];
 
-//HTML oculto
+//HTML a desplegarse
 
 const selectSrv=document.getElementById("selectSrv").hidden=true;
 const form=document.getElementById("contenedorFormulario").hidden=true;
-// const contenedorRender=document.getElementById("impresionResultados").hidden=true;
-// const contenedorBuscador=document.getElementById("mostrarServ").hidden=true;
 
 
 //FUNCIONALIDAD DE LOS BOTONES DE ACCESO
 
+//Presupuestar---
 const boton = document.getElementById("boton1")
 boton.addEventListener("click", onclick)
 boton.onclick = () => {seleccionarServicioPrueba()}
+
+//Consultar Servicio---
 const boton2=document.getElementById("boton2")
 boton2.addEventListener("click",onclick)
 boton2.onclick=()=>{buscarServ()}
@@ -127,7 +122,6 @@ function eleccionServicio(){
     const desarrolloWeb=document.createElement("p")
     desarrolloWeb.innerHTML=`
     <p>Elegí que servicio de los disponibles deseas presupuestar. Actualmente tenemos dos opciones para que puedas tener un presupuesto rápido: los servicios de DESARROLLO WEB, que incluyen distintas variantes a la hora de construir una web acorde a tus necesidades y el servicio de DISEÑO GRÁFICO con opciones tanto de diseño editorial, gráfico y para web.</p>`
-
     opcionesPresu.append(desarrolloWeb)
     const eligeServicio=document.createElement("select");
     eligeServicio.className="form-select ordenCard";
@@ -152,9 +146,9 @@ function categoriaDesarrolloWeb(){
     const nuevo=document.getElementById("selectSrv");
     const selectDW=document.createElement("select");
     selectDW.className="form-select ordenCard";
-    selectDW.setAttribute("id", "eleccion")
+    selectDW.setAttribute("id", "eleccion");
     selectDW.innerHTML=`
-        <option selected>Elige un servicio</option>`
+    <option selected>Elige el tipo de servicio</option>`
     for(const item of servDesarrolloWeb){
         selectDW.innerHTML+=`
         <option value="${item.codigo}">${item.servicio}</option>`
@@ -171,7 +165,9 @@ function categoriaDisenioGrafico(){
     const nuevo=document.getElementById("selectSrv");
     const selectDG=document.createElement("select");
     selectDG.className="form-select ordenCard";
-    selectDG.setAttribute("id", "eleccion")
+    selectDG.setAttribute("id", "eleccion");
+    selectDG.innerHTML=`
+    <option selected>Elige el tipo de servicio</option>`
     for(const item of servDisenioGrafico){
         selectDG.innerHTML+=`
         <option value="${item.codigo}">${item.servicio}</option>`
@@ -181,10 +177,9 @@ function categoriaDisenioGrafico(){
         const eleccion=document.getElementById("eleccion").value;
         sessionStorage.setItem(`codigoProducto`, eleccion);
         formulario()
+        
     }
 }
-
-//FALTA traer el evento consultado e integrarlo a la función. 
 
 function formulario(){
     const form=document.getElementById("contenedorFormulario").hidden=false;
@@ -194,19 +189,16 @@ function formulario(){
 
 function validarForm(e){
     e.preventDefault();
+    const servElegido=JSON.parse(sessionStorage.getItem(`codigoProducto`));
     nombre=document.getElementById("nombre").value;
     apellido=document.getElementById("apellido").value;
     email=document.getElementById("email").value;
     telefono=document.getElementById("telefono").value;
-    const cliente=new Persona(nombre, apellido, telefono, email, servConsultado);
+    const cliente=new Persona(nombre, apellido, telefono, email, servElegido);
     registroConsultas.push(cliente);
-    sessionStorage.setItem(`usuario`, JSON.stringify(registroConsultas))
-    if(servConsultado<100){
-        renderizarPresupuestoWeb()
-    }else if(servConsultado>100){
-        renderizarPresupuestoDG();
-    }
-
+    sessionStorage.setItem(`usuario`, JSON.stringify(registroConsultas));
+    //Ternario 
+    servElegido<100? renderizarPresupuestoWeb():renderizarPresupuestoDG();
 }
 
 function Persona(nombre, apellido, telefono, mail, servicioConsultado){
@@ -217,12 +209,9 @@ function Persona(nombre, apellido, telefono, mail, servicioConsultado){
     this.servicioConsultado=servicioConsultado
 }
 
-//Find que busca el código y trae todo el objeto
-
-const resumenServConsultado1=servDesarrolloWeb.find((elemento)=>elemento.codigo==servConsultado);
-const resumenServConsultado2=servDisenioGrafico.find((elemento)=>elemento.codigo==servConsultado);
-
 function renderizarPresupuestoWeb(){
+    const servConsultado=JSON.parse(sessionStorage.getItem(`codigoProducto`));
+    const resumenServConsultado1=servDesarrolloWeb.find((elemento)=>elemento.codigo===servConsultado);
     const impresion=document.getElementById("impresionResultados");
     impresion.innerHTML=`
     <h3>Presupuesto de servicios en línea</h3>
@@ -251,6 +240,8 @@ function renderizarPresupuestoWeb(){
 }
 
 function renderizarPresupuestoDG(){
+    const servConsultado=JSON.parse(sessionStorage.getItem(`codigoProducto`));
+    const resumenServConsultado1=servDisenioGrafico.find((elemento)=>elemento.codigo===servConsultado);
     const impresion=document.getElementById("impresionResultados");
     impresion.innerHTML=`
     <h3>Presupuesto de servicios en línea</h3>
@@ -268,23 +259,28 @@ function renderizarPresupuestoDG(){
         <th>Observaciones</th>
     </tr>
     <tr>
-        <td>${resumenServConsultado2.codigo}</td>
-        <td>${resumenServConsultado2.servicio}</td>
-        <td>${resumenServConsultado2.características}</td>
-        <td>${resumenServConsultado2.precio}</td>
-        <td>${resumenServConsultado2.observaciones}</td>
+        <td>${resumenServConsultado1.codigo}</td>
+        <td>${resumenServConsultado1.servicio}</td>
+        <td>${resumenServConsultado1.características}</td>
+        <td>${resumenServConsultado1.precio}</td>
+        <td>${resumenServConsultado1.observaciones}</td>
     </tr>
     </table>`
 }
 
+//Recupero datos de usuario el sessionStorage para acción futura (probablemente solo para recordarle que ya había solicitado presupuesto. AUN SIN DEFINIR)
+const usuario=JSON.parse(sessionStorage.getItem(`usuario`));
+
+// ------------------------------------------------------------------------------------
+
 //FUNCION PARA BUSCADOR DE SERVICIOS UNICAMENTE
+//Refiere a "Consultar Servicios". Solo busca y renderiza resultados
 
 function buscarServ(){
     servBuscado=prompt("Buscá alguno de los servicios que tenemos para ofrecerte. Ingresá el servicio que querés buscar").toUpperCase();
     const resultado=servDesarrolloWeb.filter((item) => item.servicio.includes(servBuscado));
     const resultado2=servDisenioGrafico.filter((item) => item.servicio.includes(servBuscado));
     const resultado3=servFotografia.filter((item) => item.servicio.includes(servBuscado));
-    // console.log (resultado, resultado2, resultado3);
     const servBusc=document.createElement("cards");
     servBusc.className="card text-center"
     for(const item of resultado){
@@ -339,3 +335,7 @@ function buscarServ(){
     contenedor.append(servBusc);
 
 }
+
+
+
+
