@@ -2,6 +2,7 @@
 
 let servBuscado;
 
+
 // sessionStorage.clear(`codigoProducto`)
 
 //Arrays (van a modularse a un js diferente)
@@ -134,11 +135,8 @@ function eleccionServicio(){
     desarrolloWeb.append(eligeServicio);
     eligeServicio.onchange=function(){
         const valor=document.getElementById("eleccionCategoria").value;
-        if(valor==1){
-            categoriaDesarrolloWeb();
-        }else if(valor==2){
-            categoriaDisenioGrafico();
-        }
+        //Ternario
+        valor==1? categoriaDesarrolloWeb():categoriaDisenioGrafico();
     }
 }
 
@@ -187,6 +185,7 @@ function formulario(){
     formDatos.addEventListener("submit", validarForm);
 }
 
+
 function validarForm(e){
     e.preventDefault();
     const servElegido=JSON.parse(sessionStorage.getItem(`codigoProducto`));
@@ -194,11 +193,40 @@ function validarForm(e){
     apellido=document.getElementById("apellido").value;
     email=document.getElementById("email").value;
     telefono=document.getElementById("telefono").value;
-    const cliente=new Persona(nombre, apellido, telefono, email, servElegido);
-    registroConsultas.push(cliente);
-    sessionStorage.setItem(`usuario`, JSON.stringify(registroConsultas));
-    //Ternario 
-    servElegido<100? renderizarPresupuestoWeb():renderizarPresupuestoDG();
+    //Esto de las expresiones regulares lo leí en una documentación, pero no me estpa saliendo para el Tel. Copie una validación de mail y cuando tenga mas tiempo lo investigo bien. Funciona, aunque no se si está bien implementada
+    let mensajeError= "";
+    let entrar = false;
+    let validarEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+    if(nombre.length <3){
+        mensajeError+=`El nombre debe tener más de 3 caracteres `
+        entrar = true
+    }
+    if(!validarEmail.test(email)){
+        mensajeError+=`El email no es valido `
+        entrar = true
+    }
+    if(entrar){Swal.fire({
+            icon: 'error',
+            title: 'Revisá los datos ingresados',
+            text: 'Hay campos con datos incorrectos',
+            text: `${mensajeError}`,
+          })
+    }else{
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Perfecto!',
+            text: `Debajo ya está generado tu presupuesto`,
+            showConfirmButton: false,
+            timer: 1500
+          })
+        const cliente=new Persona(nombre, apellido, telefono, email, servElegido);
+        registroConsultas.push(cliente);
+        sessionStorage.setItem(`usuario`, JSON.stringify(registroConsultas));
+        //Ternario 
+        servElegido<100? renderizarPresupuestoWeb():renderizarPresupuestoDG();
+    }
+    
 }
 
 function Persona(nombre, apellido, telefono, mail, servicioConsultado){
@@ -237,6 +265,7 @@ function renderizarPresupuestoWeb(){
     </tr>
     </table>
     `
+    
 }
 
 function renderizarPresupuestoDG(){
@@ -269,8 +298,8 @@ function renderizarPresupuestoDG(){
 }
 
 //Recupero datos de usuario el sessionStorage para acción futura (probablemente solo para recordarle que ya había solicitado presupuesto. AUN SIN DEFINIR)
-const usuario=JSON.parse(sessionStorage.getItem(`usuario`));
 
+const usuario=JSON.parse(sessionStorage.getItem(`usuario`));
 // ------------------------------------------------------------------------------------
 
 //FUNCION PARA BUSCADOR DE SERVICIOS UNICAMENTE
@@ -336,6 +365,27 @@ function buscarServ(){
 
 }
 
-
+// function validarForm(e){
+//     e.preventDefault();
+//     const servElegido=JSON.parse(sessionStorage.getItem(`codigoProducto`));
+//     nombre=document.getElementById("nombre").value;
+//     //Prueba de validacion con &&: solo para probar, la validación la tengo que estudiar y pensaba hacerla con switch
+//     nombre.length<3 && Swal.fire({icon: 'error',title: 'Nombre inválido',text: 'Debe contener al menos 3 caracteres'});
+//     apellido=document.getElementById("apellido").value;
+//     email=document.getElementById("email").value;
+//     telefono=document.getElementById("telefono").value;
+//     Swal.fire({
+//         position: 'center',
+//         icon: 'success',
+//         title: 'El registro se realizó con éxito',
+//         showConfirmButton: false,
+//         timer: 1500
+//       })
+//     const cliente=new Persona(nombre, apellido, telefono, email, servElegido);
+//     registroConsultas.push(cliente);
+//     sessionStorage.setItem(`usuario`, JSON.stringify(registroConsultas));
+//     //Ternario 
+//     servElegido<100? renderizarPresupuestoWeb():renderizarPresupuestoDG();
+// }
 
 
