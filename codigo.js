@@ -1,5 +1,7 @@
 //SIMULADOR PARA PEDIDO DE PRESUPUESTOS RÁPIDOS
 
+//Librería
+
 let servBuscado;
 
 
@@ -265,7 +267,16 @@ function renderizarPresupuestoWeb(){
     </tr>
     </table>
     `
-    
+    const container=document.getElementById("opcionesOperacion")
+    container.className="d-grid gap-2"
+    const btnDescargarPresu=document.createElement("button")
+    btnDescargarPresu.className="btn btn-secundary btnInt";
+    btnDescargarPresu.innerText=`Guardar como PDF`;
+    container.append(btnDescargarPresu)
+    btnDescargarPresu.addEventListener("click",onclick)
+    btnDescargarPresu.onclick=()=>{generarPDF()}
+
+
 }
 
 function renderizarPresupuestoDG(){
@@ -295,6 +306,15 @@ function renderizarPresupuestoDG(){
         <td>${resumenServConsultado1.observaciones}</td>
     </tr>
     </table>`
+
+    const container=document.getElementById("opcionesOperacion")
+    container.className="d-grid gap-2"
+    const btnDescargarPresu=document.createElement("button")
+    btnDescargarPresu.className="btn btn-secundary btnInt";
+    btnDescargarPresu.innerText=`Guardar como PDF`;
+    container.append(btnDescargarPresu)
+    btnDescargarPresu.addEventListener("click",onclick)
+    btnDescargarPresu.onclick=()=>{generarPDF()}
 }
 
 //Recupero datos de usuario el sessionStorage para acción futura (probablemente solo para recordarle que ya había solicitado presupuesto. AUN SIN DEFINIR)
@@ -364,6 +384,22 @@ function buscarServ(){
     contenedor.append(servBusc);
 
 }
+
+function generarPDF(){
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Listo!',
+        text: `Tu presupuesto se descargó correctamente`,
+        showConfirmButton: false,
+        timer: 1500
+    })
+    const pdf = new jsPDF('l', 'px', 'letter', true, false, 2);
+    pdf.fromHTML(impresion=document.getElementById("impresionResultados"));
+    pdf.save('presupuesto.pdf');
+}
+
+
 
 // function validarForm(e){
 //     e.preventDefault();
