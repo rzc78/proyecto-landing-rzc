@@ -1,0 +1,72 @@
+[
+	[{
+		"codigo": 10,
+		"servicio": "DISEÑO WEB BÁSICO",
+		"características": "Incluye un sitio web con 5 páginas y subida al servidor con el producto final terminado. No incluye servicios de tiendas y/o interacciones complejas",
+		"precio": 85000,
+		"observaciones": "No incluye diseño gráfico de piezas puntuales como logos, manipulación de imágenes, etc"
+	},
+	{
+		"codigo": 20,
+		"servicio": "DISEÑO WEB Y TIENDA",
+		"características": "Desarrollo web básico + gestión y construcción de una tienda web completa con funcionalidades de carro de compra. Desarrollo Web con servicio de diseño gráfico de todo el contenido",
+		"precio": 150000,
+		"observaciones": "No incluye diseño gráfico de piezas puntuales como logos, manipulación de imágenes, etc"
+	},
+	{
+		"codigo": 30,
+		"servicio": "DISEÑO WEB INTEGRAL",
+		"características": "Desarrollo Web con funcionalidades completas y diseño gráfico de todo el contenido. Construcción completa de la identidad visual del sitio (recomendado)",
+		"precio": 105000,
+		"observaciones": "No incluye tienda"
+	},
+	{
+		"codigo": 40,
+		"servicio": "PAGINA WEB DESARROLLADA EN WORDPRESS",
+		"características": "Desarrollo Web con funcionalidades completas bajo los parámetros de este sistema. Automatización de servicios alojados en el sistema y 10 hs de entrenamiento para subida y mantenimiento de la web",
+		"precio": 145000,
+		"observaciones": "Incluye 10 hs de capacitación virtual al RRHH mediante plataforma de ZOOM"
+	}],
+	[{
+		"codigo": 101,
+		"servicio": "DISEÑO GRÁFICO EDITORIAL",
+		"características": "Enfocado en el diseño de piezas para impresión, revistas, folletos y gran formato\n2)Diseño gráfico para sitios web: construcción de piezas a medida para vestir sitios web y gestión de imagen de marca.",
+		"precio": "A convenir, dependiendo del tamaño y características del proyecto",
+		"observaciones": "Enfocado en diseño de revistas y dossiers intitucionaes y de prensa."
+	},
+	{
+		"codigo": 102,
+		"servicio": "DISEÑO GRÁFICO WEB",
+		"características": "Diseño gráfico para sitios web: construcción de piezas a medida para vestir sitios web y gestión de imagen de marca",
+		"precio": 30000,
+		"observaciones": "No incluye la creación de una identidad de marca, sino de adaptaciones de lo existente y la creación de piezas a medida."
+	}],
+	[{
+		"codigo": 201,
+		"servicio": "COBERTURA DE EVENTOS DEPORTIVOS",
+		"características": "",
+		"precio": 3000,
+		"observaciones": "El precio es por jornada de trabajo de hasta 3 hs. Precio sujeto a eventos de duración mayor y continuidad del mismo. Viáticos no incluídos."
+	},
+	{
+		"codigo": 202,
+		"servicio": "FOTOGRAFIA DE ESTUDIO",
+		"características": "Fotografía publicitaria de personas para uso editorial, tiendas, publicidades de todo tipo.",
+		"precio": "A convenir",
+		"observaciones": "Sujeto al tamaño de producción, personas involucradas y requerimientos técnicos y de recursos humanos para desarrollar el trabajo."
+	},
+	{
+		"codigo": 203,
+		"servicio": "FOTOGRAFIA DE PRODUCTOS",
+		"características": "Fotografía de bodegones en estudio. Utilización de flashes y fondos especiales para productos alimenticios, opticas, fotografía para e-commerce, entre otras.",
+		"precio": 100,
+		"observaciones": "El valor expresado es por unidad fotografiada. A convenir paquetes de productos en cantidades superiores a 50 unidades."
+	},
+	{
+		"codigo": 204,
+		"servicio": "RETOQUE DIGITAL",
+		"características": "Retoque digital en Photoshop. Sobre imágenes NEFF o RAW, retoque de fotografía con quitado de detalles (poro, suciedad, imperfecciones), corrección de color. Reacondicionamiento general de detalles. Apto impresión de gran formato, digital, editorial.",
+		"precio": 1500,
+		"observaciones": "El precio expresado es por hora de trabajom sujeto a cantidad de originales a restaurar."
+	}]
+]
