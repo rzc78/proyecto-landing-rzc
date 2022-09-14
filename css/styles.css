@@ -254,10 +254,11 @@ footer {
   padding-left: 10rem;
   padding-right: 10rem;
   text-align: center; }
-  @media screen and (max-width: 1054px) {
+  @media screen and (max-width: 600px) {
     .cuerpoPresupuestoXs {
       font-size: 13px;
-      margin: 60px 80px; } }
+      padding-left: 1rem;
+      padding-right: 1rem; } }
 
 .cuerpoPresupuesto {
   font-family: sarabun, sans-serif;
@@ -382,6 +383,9 @@ footer {
 
 .formCentrado {
   margin: 0 auto; }
+
+.space {
+  margin-bottom: 20px; }
 
 /*BOTONES*/
 .btnModificado {

@@ -30,7 +30,7 @@
 	[{
 		"codigo": 101,
 		"servicio": "DISEÑO GRÁFICO EDITORIAL",
-		"características": "Enfocado en el diseño de piezas para impresión, revistas, folletos y gran formato\n2)Diseño gráfico para sitios web: construcción de piezas a medida para vestir sitios web y gestión de imagen de marca.",
+		"características": "Enfocado en el diseño de piezas para impresión, revistas, folletos y gran formato.",
 		"precio": "A convenir, dependiendo del tamaño y características del proyecto",
 		"observaciones": "Enfocado en diseño de revistas y dossiers intitucionaes y de prensa."
 	},
@@ -44,7 +44,7 @@
 	[{
 		"codigo": 201,
 		"servicio": "COBERTURA DE EVENTOS DEPORTIVOS",
-		"características": "",
+		"características": "Según condiciones a estimar.",
 		"precio": 3000,
 		"observaciones": "El precio es por jornada de trabajo de hasta 3 hs. Precio sujeto a eventos de duración mayor y continuidad del mismo. Viáticos no incluídos."
 	},

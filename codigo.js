@@ -7,12 +7,11 @@ const registroConsultas=[];
 let servDesarrolloWeb=[];
 let servDisenioGrafico=[];
 let servFotografia=[];
+const fecha=new Date().toDateString();
 
 //Pedidos de datos para funcionamiento: a JSON con arrays de servicios
 
 obtenerServicios();
-
-// sessionStorage.clear(`codigoProducto`) 
 
 //HTML a desplegarse
 
@@ -25,7 +24,7 @@ const form=document.getElementById("contenedorFormulario").hidden=true;
 //Presupuestar---
 const boton = document.getElementById("boton1")
 boton.addEventListener("click", onclick)
-boton.onclick = () => {seleccionarServicioPrueba()}
+boton.onclick = () => {seleccionarServicio()}
 
 //Consultar Servicio---
 const boton2=document.getElementById("boton2")
@@ -33,7 +32,6 @@ boton2.addEventListener("click",onclick)
 boton2.onclick=()=>{buscarServ()}
 
 //Función para traer datos de JSON
-
 function obtenerServicios(){
     const URL_LOCAL="servicios.json";
     fetch(URL_LOCAL)
@@ -46,8 +44,7 @@ function obtenerServicios(){
 }
 
 //FUNCIONES DE SELECCION DE SERVICIOS A PRESUPUESTAR
-
-function seleccionarServicioPrueba(){
+function seleccionarServicio(){
     const selectSrv=document.getElementById("selectSrv").hidden=false;
     const botonContinuar=document.getElementById("btnContinuar");
     botonContinuar.addEventListener("click", onclick)
@@ -74,11 +71,12 @@ function eleccionServicio(){
     eligeServicio.onchange=function(){
         const valor=document.getElementById("eleccionCategoria").value;
         //Ternario
-        valor==1? categoriaDesarrolloWeb():categoriaDisenioGrafico();
+        valor==1? categoriaDesarrolloWeb():categoriaDisenioGrafico()
     }
 }
 
 function categoriaDesarrolloWeb(){
+    const disabled=document.getElementById("eleccionCategoria").disabled=true;
     const nuevo=document.getElementById("selectSrv");
     const selectDW=document.createElement("select");
     selectDW.className="form-select ordenCard";
@@ -93,11 +91,13 @@ function categoriaDesarrolloWeb(){
     selectDW.onchange=function(){
         const eleccion=document.getElementById("eleccion").value;
         sessionStorage.setItem(`codigoProducto`, eleccion);
+        const optionDisabled=document.getElementById("eleccion").disabled=true;
         formulario()
     }
 }
 
 function categoriaDisenioGrafico(){
+    const disabled=document.getElementById("eleccionCategoria").disabled=true;
     const nuevo=document.getElementById("selectSrv");
     const selectDG=document.createElement("select");
     selectDG.className="form-select ordenCard";
@@ -112,6 +112,7 @@ function categoriaDisenioGrafico(){
     selectDG.onchange=function(){
         const eleccion=document.getElementById("eleccion").value;
         sessionStorage.setItem(`codigoProducto`, eleccion);
+        const optionDisabled=document.getElementById("eleccion").disabled=true;
         formulario()
         
     }
@@ -131,16 +132,24 @@ function validarForm(e){
     apellido=document.getElementById("apellido").value;
     email=document.getElementById("email").value;
     telefono=document.getElementById("telefono").value;
-    //Esto de las expresiones regulares lo leí en una documentación, pero no me estpa saliendo para el Tel. Copie una validación de mail y cuando tenga mas tiempo lo investigo bien. Funciona, aunque no se si está bien implementada
     let mensajeError= "";
     let entrar = false;
     let validarEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+    let validarTel=/^\d{9,11}$/;
     if(nombre.length <3){
         mensajeError+=`El nombre debe tener más de 3 caracteres `
         entrar = true
     }
+    if(apellido.length <3){
+        mensajeError+=`El apellido debe tener más de 3 caracteres `
+        entrar = true
+    }
     if(!validarEmail.test(email)){
-        mensajeError+=`El email no es valido `
+        mensajeError+=`El email no es válido `
+        entrar = true
+    }
+    if(!validarTel.test(telefono)){
+        mensajeError+=`Ingresa tu numero de móvil sin el 0 y sin el 15 `
         entrar = true
     }
     if(entrar){Swal.fire({
@@ -182,6 +191,7 @@ function renderizarPresupuestoWeb(){
     impresion.innerHTML=`
     <h3>Presupuesto de servicios en línea</h3>
     <p>A continuación obtendrás un extracto del presupuesto por el servicio que has solicitado:</p>
+    <p>Fecha: ${fecha}</p>
     <p>Nombre: ${nombre}</p>
     <p>Apellido: ${apellido}</p>
     <p>Teléfono: ${telefono}</p>
@@ -222,6 +232,7 @@ function renderizarPresupuestoDG(){
     impresion.innerHTML=`
     <h3>Presupuesto de servicios en línea</h3>
     <p>A continuación obtendrás un extracto del presupuesto por el servicio que has solicitado:</p>
+    <p>Fecha: ${fecha}</p>
     <p>Nombre: ${nombre}</p>
     <p>Apellido: ${apellido}</p>
     <p>Teléfono: ${telefono}</p>
@@ -253,10 +264,6 @@ function renderizarPresupuestoDG(){
     btnDescargarPresu.onclick=()=>{generarPDF()}
 }
 
-//Recupero datos de usuario el sessionStorage para acción futura (probablemente solo para recordarle que ya había solicitado presupuesto. AUN SIN DEFINIR)
-
-const usuario=JSON.parse(sessionStorage.getItem(`usuario`));
-// ------------------------------------------------------------------------------------
 
 //FUNCION PARA BUSCADOR DE SERVICIOS UNICAMENTE
 //Refiere a "Consultar Servicios". Solo busca y renderiza resultados
@@ -267,7 +274,7 @@ function buscarServ(){
     const resultado2=servDisenioGrafico.filter((item) => item.servicio.includes(servBuscado));
     const resultado3=servFotografia.filter((item) => item.servicio.includes(servBuscado));
     const servBusc=document.createElement("cards");
-    servBusc.className="card text-center"
+    servBusc.className="card text-center border border-warning"
     for(const item of resultado){
         servBusc.innerHTML+=`
         <div>
@@ -278,7 +285,6 @@ function buscarServ(){
                 <h5 class="card-title">$${item.precio}</h5>
                 <p class="card-text">${item.características}</p>
                 <p class="card-text">${item.observaciones}</p>
-                <a href="#" class="btn btn-primary">Continuar</a>
             </div>
             <div class="card-footer">
             </div>
@@ -286,7 +292,7 @@ function buscarServ(){
     }
     for(const item of resultado2){
         servBusc.innerHTML+=`
-        <div class="flexCard">
+        <div>
             <div class="card-header">
                 ${item.servicio}
             </div>
@@ -294,7 +300,6 @@ function buscarServ(){
                 <h5 class="card-title">$${item.precio}</h5>
                 <p class="card-text">${item.características}</p>
                 <p class="card-text">${item.observaciones}</p>
-                <a href="#" class="btn btn-primary">Continuar</a>
             </div>
             <div class="card-footer">
             </div>
@@ -310,7 +315,6 @@ function buscarServ(){
                 <h5 class="card-title">$${item.precio}</h5>
                 <p class="card-text">${item.características}</p>
                 <p class="card-text">${item.observaciones}</p>
-                <a href="#" class="btn btn-primary">Continuar</a>
             </div>
             <div class="card-footer">
             </div>
@@ -318,7 +322,6 @@ function buscarServ(){
     }
     const contenedor=document.getElementById("mostrarServ");
     contenedor.append(servBusc);
-
 }
 
 function generarPDF(){
@@ -330,34 +333,11 @@ function generarPDF(){
         showConfirmButton: false,
         timer: 1500
     })
-    const pdf = new jsPDF('l', 'px', 'letter', true, false, 2);
+
+    const pdf=new jsPDF('l', 'px', 'letter', true, false, 2);
     pdf.fromHTML(impresion=document.getElementById("impresionResultados"));
     pdf.save('presupuesto.pdf');
 }
 
-
-
-// function validarForm(e){
-//     e.preventDefault();
-//     const servElegido=JSON.parse(sessionStorage.getItem(`codigoProducto`));
-//     nombre=document.getElementById("nombre").value;
-//     //Prueba de validacion con &&: solo para probar, la validación la tengo que estudiar y pensaba hacerla con switch
-//     nombre.length<3 && Swal.fire({icon: 'error',title: 'Nombre inválido',text: 'Debe contener al menos 3 caracteres'});
-//     apellido=document.getElementById("apellido").value;
-//     email=document.getElementById("email").value;
-//     telefono=document.getElementById("telefono").value;
-//     Swal.fire({
-//         position: 'center',
-//         icon: 'success',
-//         title: 'El registro se realizó con éxito',
-//         showConfirmButton: false,
-//         timer: 1500
-//       })
-//     const cliente=new Persona(nombre, apellido, telefono, email, servElegido);
-//     registroConsultas.push(cliente);
-//     sessionStorage.setItem(`usuario`, JSON.stringify(registroConsultas));
-//     //Ternario 
-//     servElegido<100? renderizarPresupuestoWeb():renderizarPresupuestoDG();
-// }
 
 
